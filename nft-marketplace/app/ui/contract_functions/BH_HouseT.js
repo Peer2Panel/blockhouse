@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import BH_HouseT_abi from "../abis/BH_HouseT.json";
-import BH_FungibleSolar_abi from "../abis/BH_FungibleSolar.json";
+import BH_FungibleBlockhouse_abi from "../abis/BH_FungibleBlockhouse.json";
 
 let addresses;
 import addresses_mainnet from "./addresses_mainnet.json";
@@ -11,7 +11,7 @@ if(true){
 import { getSigner, getSimpleSigner } from "./utils";
 
 const BH_HouseT_address = addresses.BH_HouseT_address;
-const BH_FungibleSolar_address = addresses.BH_FungibleSolar_address;
+const BH_FungibleBlockhouse_address = addresses.BH_FungibleBlockhouse_address;
 
 async function add_address_whitelist(loggedInAddress) {
     //alert("Executing. Please open wallet connect or metamask.");

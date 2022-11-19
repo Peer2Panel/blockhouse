@@ -69,7 +69,7 @@
     },
     {
       "inputs": [],
-      "name": "BHFungibleSolar_contract_address",
+      "name": "BHFungibleBlockhouse_contract_address",
       "outputs": [
         {
           "internalType": "address",
@@ -287,7 +287,7 @@
         },
         {
           "internalType": "address",
-          "name": "_BHFungibleSolar_contract_address",
+          "name": "_BHFungibleBlockhouse_contract_address",
           "type": "address"
         },
         {
