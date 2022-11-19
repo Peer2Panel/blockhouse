@@ -31,7 +31,7 @@ function getWeb3Modal() {
     //network: network_status ? "matic" : "mumbai", // matic, mumbai
     //rpc: network_status ? mainnet : mumbai,
     //infuraId: "52d870bea786485393defdf70053a904",
-    //chainId: network_status ? 137 : 80001,
+    //chainId: network_status ? 1313161554 : 1313161556,
     cacheProvider: true,
     providerOptions
   });
@@ -159,7 +159,7 @@ async function uploadToIPFS (formInput, fileUrl, callback) {
 }
 
 
-async function switchToPolygon(loggedInAddress, chainId = 80001){
+async function switchToNEAR(loggedInAddress, chainId = 1313161554){
   const switchNetwork = async (chainId) => {
 
     const currentChainId = parseInt(ethereum.chainId);
@@ -183,7 +183,7 @@ async function switchToPolygon(loggedInAddress, chainId = 80001){
       alert("already on correct network!")
     )
   }
-  switchNetwork(chainId) // 80001 is Polygon Mumbai Testnet, 137 is Polygon Mainnet
+  switchNetwork(chainId) // 1313161554 is Aurora Mainnet, 1313161556 is Aurora Testnet
 }
 
 async function addFungibleBlockhouseToWallet(loggedInAddress){
@@ -249,4 +249,4 @@ async function addUSDCToWallet(loggedInAddress){
 }
 
 
-export { getWeb3Modal, getSigner, getSimpleSigner, onChangeIPFS, uploadToIPFS, switchToPolygon, addFungibleBlockhouseToWallet, addUSDCToWallet }
+export { getWeb3Modal, getSigner, getSimpleSigner, onChangeIPFS, uploadToIPFS, switchToNEAR, addFungibleBlockhouseToWallet, addUSDCToWallet }

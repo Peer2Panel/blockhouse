@@ -6,7 +6,7 @@ import { Select } from "./components/Fields/Select";
 import { SortOptions } from "./common/SortOptions";
 import { loadNFTs } from './contract_functions/BH_MarketPlace';
 import { useOutletContext } from "react-router-dom";
-import { switchToPolygon } from "./contract_functions/utils";
+import { switchToNEAR } from "./contract_functions/utils";
 
 export default function HomePage() {
   const [nfts, setNfts] = useState([]);
@@ -56,11 +56,11 @@ export default function HomePage() {
   //console.log(loadingState)
   //console.log(chainId)
   
-  const onMumbai = chainId == 80001;
-  const onMainnet = chainId == 137;
+  const onMumbai = chainId == 1313161556;
+  const onMainnet = chainId == 1313161554;
 
   //console.log("rendering mainpage")
-  const switcher = <a onClick={()=> switchToPolygon("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 137)} href="#" style={{textDecoration: "underline"}}>Connect to Mainnet</a>;
+  const switcher = <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}>Connect to Aurora Mainnet</a>;
   return (
     <>
       <div className="bg-rhino bg-bg-stars bg-auto bg-no-repeat bg-center-center py-24">
@@ -75,7 +75,7 @@ export default function HomePage() {
         </div>
       </div>
       <div style={{minHeight: "650px"}} className="max-w-7xl mx-auto mt-16 pt-2.5 px-2 sm:px-6 lg:px-8">
-        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onMumbai ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span>You are on chain {chainId}. Please connect to the Polygon Mainnet (137). {switcher}</span> : ""}
+        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onMumbai ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span>You are on chain {chainId}. Please connect to the Aurora Mainnet (1313161554). {switcher}</span> : ""}
         <div>
             <div className="flex items-center justify-between mb-5">
               <h2 id="allnfts" className="text-h2 text-rhino font-bold">All NFTs</h2>
