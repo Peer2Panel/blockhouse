@@ -3,7 +3,7 @@ import { getProviderOptions } from "../util/ethers_utils";
 import { ethers } from 'ethers';
 import BH_MarketPlace_abi from "../abis/BH_MarketPlace.json";
 import BH_HouseT_abi from "../abis/BH_HouseT.json";
-import BH_FungibleSolar_abi from "../abis/BH_FungibleSolar.json";
+import BH_FungibleBlockhouse_abi from "../abis/BH_FungibleBlockhouse.json";
 import USDC_test_abi from "../abis/USDC_testnet.json";
 
 import addresses_mainnet from "./addresses_mainnet.json";
@@ -20,7 +20,7 @@ import { areOptionsEqual } from '@mui/base';
 
 const BH_MarketPlace_address = addresses.BH_MarketPlace_address;
 const BH_HouseT_address = addresses.BH_HouseT_address;
-const BH_FungibleSolar_address = addresses.BH_FungibleSolar_address;
+const BH_FungibleBlockhouse_address = addresses.BH_FungibleBlockhouse_address;
 
 async function buy_HouseT(loggedInAddress, tokenID = "", setApprove = ()=>{}) {
     //alert("Executing. Please open wallet connect or metamask.");
@@ -160,7 +160,7 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
   const allInfo = await solarTContract.get_all_HouseT_info();
   const [addresses, metadata, listed, staked, concatenated_uint] = allInfo;
   const [bookvalue, listing_prices, earned_profits,remaining_payment_list] = concatenated_uint;
-  const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleSolar_address, BH_FungibleSolar_abi.abi, signer);
+  const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleBlockhouse_address, BH_FungibleBlockhouse_abi.abi, signer);
 
   const ownerList_Marketplace = await solarTContract.get_list_of_solarT_owner();
   const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_solarT_staker())["0"];
@@ -231,7 +231,7 @@ async function loadNFT(loggedInAddress, tokenId, setNft, setLoadingState) {
 
   const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   const tokenURI = await solarTContract.tokenURI(parseInt(tokenId));
-  const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleSolar_address, BH_FungibleSolar_abi.abi, signer);
+  const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleBlockhouse_address, BH_FungibleBlockhouse_abi.abi, signer);
   const marketPlaceContract = new ethers.Contract(BH_MarketPlace_address, BH_MarketPlace_abi.abi, signer);
   const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_solarT_staker())["0"];
 

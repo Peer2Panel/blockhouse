@@ -9,7 +9,7 @@ if(true){
   addresses = addresses_mainnet;
 }
 import { mintUSDC } from "./contract_functions/USDC_test";
-import { stake_HouseT, unstake_HouseT, update_HouseT_value, exchange_FBH_TO_USDC, approve_USDC, exchange_USDC_TO_FBH } from "./contract_functions/BH_FungibleSolar";
+import { stake_HouseT, unstake_HouseT, update_HouseT_value, exchange_FBH_TO_USDC, approve_USDC, exchange_USDC_TO_FBH } from "./contract_functions/BH_FungibleBlockhouse";
 import { buy_HouseT, list_HouseT, unlist_HouseT, get_USDC_Balcance } from "./contract_functions/BH_MarketPlace";
 import { add_address_whitelist, remove_address_whitelist, is_in_whitelist_whitelist, distribute_profit, check_current_profits, Add_HouseT_entilted_amount, mint_HouseT } from "./contract_functions/BH_HouseT";
 import { onChangeIPFS, uploadToIPFS, switchToPolygon, addFungibleBlockhouseToWallet, addUSDCToWallet } from "./contract_functions/utils";
@@ -274,8 +274,8 @@ export default function ContractTestPage() {
       </div>
       <br />
       <div>
-        <h3>4. FungibleSolar Contract</h3>
-        <div><i>{addresses.BH_FungibleSolar_address}</i></div>
+        <h3>4. FungibleBlockhouse Contract</h3>
+        <div><i>{addresses.BH_FungibleBlockhouse_address}</i></div>
         <label htmlFor="file" className="flex relative">
           <input
             onChange={onChange}
