@@ -1,0 +1,4 @@
+- Make hardhat script to update NFT value
+- Make hardhat script to distribute reward
+- Make script to list NFT in batch
+- Make script to mint NFT in batch
