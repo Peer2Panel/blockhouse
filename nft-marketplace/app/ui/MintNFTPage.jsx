@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "./components/Button";
 import { InputField } from "./components/Fields/InputField";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import { onChangeIPFS, uploadToIPFS, switchToPolygon, addFungibleBlockhouseToWallet, addUSDCToWallet } from "./contract_functions/utils";
+import { onChangeIPFS, uploadToIPFS, switchToNEAR, addFungibleBlockhouseToWallet, addUSDCToWallet } from "./contract_functions/utils";
 import { add_address_whitelist, remove_address_whitelist, is_in_whitelist_whitelist, distribute_profit, check_current_profits, Add_HouseT_entilted_amount, update_URI, mint_HouseT } from "./contract_functions/BH_HouseT";
 import { list_HouseT_batch } from "./contract_functions/BH_MarketPlace";
 

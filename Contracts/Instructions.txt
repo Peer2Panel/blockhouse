@@ -2,14 +2,14 @@
 Right now Im using ERC721 standard, because ERC1155 was causing a lot of challenges for the implementation.
 
 
-Polygon mainet:
+Near Aurora mainet:
 
 USDC_contract_address = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174
 BH_HouseT_contract_address = XXX
 BH_MarketPlace_contract_address = XXX
 BH_FungibleBlockhouse_contract_address = XXX
 
-Polygon testnet (gassless upgradable):
+Near Aurora testnet (gassless upgradable):
 
 USDC_contract_address = 0xeE36A294369bE640Ce839F195f430A461ab6DA89
 BH_HouseT_contract_address = 0x8ed0E2165c0A451DF470339b922b7Df37f418155

@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch, { SwitchProps } from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { switchToPolygon } from "../contract_functions/utils";
+import { switchToNEAR } from "../contract_functions/utils";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -189,10 +189,10 @@ export default function CustomizedSwitches() {
     localStorage.setItem(type, new_status);
     if(type == "network"){
       if (new_status == true){
-        switchToPolygon("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 137);
+        switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554);
       }
       else {
-        switchToPolygon("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 80001);
+        switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161556); // Aurora Testnet
       }
     }
   }
@@ -203,7 +203,7 @@ export default function CustomizedSwitches() {
         {/*<Typography>Testnet (Mumbai)</Typography>
         <AntSwitch disabled name="network" onChange={onChange} defaultChecked={localStorage.getItem("network") == 'true'} inputProps={{ 'aria-label': 'ant design' }} />
         */}
-        <a onClick={()=> switchToPolygon("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 137)} href="#" style={{textDecoration: "underline"}}><Typography>Connect to Mainnet</Typography></a>
+        <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><Typography>Connect to Mainnet</Typography></a>
       </Stack>
       <Stack direction="row" spacing={1} alignItems="center">
         <Typography>Normal transactions</Typography>
