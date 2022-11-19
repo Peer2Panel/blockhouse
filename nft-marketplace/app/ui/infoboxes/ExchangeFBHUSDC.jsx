@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { Amount_in_contract, exchange_FBH_TO_USDC, approve_USDC, exchange_USDC_TO_FBH } from "../contract_functions/BH_FungibleSolar";
+import { Amount_in_contract, exchange_FBH_TO_USDC, approve_USDC, exchange_USDC_TO_FBH } from "../contract_functions/BH_FungibleBlockhouse";
 import { useOutletContext } from "react-router-dom";
 
 export default function ExchangeFBHUSDC(children) {
