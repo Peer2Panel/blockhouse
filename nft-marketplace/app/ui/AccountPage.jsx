@@ -15,7 +15,7 @@ import ExchangeFBHUSDC from './infoboxes/ExchangeFBHUSDC.jsx';
 import CustomizedSwitches from './components/Switches.jsx';
 import { addFungibleBlockhouseToWallet, addUSDCToWallet } from "./contract_functions/utils";
 import { balanceOfUSDC, mintUSDC } from "./contract_functions/USDC_test";
-import { balanceOfFS } from "./contract_functions/BH_FungibleSolar";
+import { balanceOfFS } from "./contract_functions/BH_FungibleBlockhouse";
 import { loadNFTs } from './contract_functions/BH_MarketPlace';
 import { is_in_whitelist_whitelist } from './contract_functions/BH_HouseT';
 
