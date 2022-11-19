@@ -9,12 +9,12 @@ import Web3 from "web3";
 import { Biconomy } from "@biconomy/mexa";
 
 const USDC_address = addresses.USDC_address;
-const BH_FungibleSolar_address = addresses.BH_FungibleSolar_address;
+const BH_FungibleBlockhouse_address = addresses.BH_FungibleBlockhouse_address;
 const BH_HouseT_address = addresses.BH_HouseT_address;
 const BH_MarketPlace_address = addresses.BH_MarketPlace_address;
 
 const USDC_address_mainnet = addresses_mainnet.USDC_address;
-const BH_FungibleSolar_address_mainnet = addresses_mainnet.BH_FungibleSolar_address;
+const BH_FungibleBlockhouse_address_mainnet = addresses_mainnet.BH_FungibleBlockhouse_address;
 const BH_HouseT_address_mainnet = addresses_mainnet.BH_HouseT_address;
 const BH_MarketPlace_address_mainnet = addresses_mainnet.BH_MarketPlace_address;
 
@@ -65,8 +65,8 @@ async function getSigner(loggedInAddress) {
 
     const biconomy = new Biconomy(provider.provider, { // provider.provider or window.ethereum
       apiKey: network_status ? "HlTosOkeC.f8d893b9-2d2c-4689-bd6b-693b8b1acae7" : "0pczykuSe.b08b47ed-1162-4b7b-aab7-facfe50912a0",
-      contractAddresses: network_status ? [ USDC_address_mainnet, BH_FungibleSolar_address_mainnet, BH_HouseT_address_mainnet, BH_MarketPlace_address_mainnet ] : 
-      [ USDC_address, BH_FungibleSolar_address, BH_HouseT_address, BH_MarketPlace_address ],
+      contractAddresses: network_status ? [ USDC_address_mainnet, BH_FungibleBlockhouse_address_mainnet, BH_HouseT_address_mainnet, BH_MarketPlace_address_mainnet ] : 
+      [ USDC_address, BH_FungibleBlockhouse_address, BH_HouseT_address, BH_MarketPlace_address ],
       debug: true,
       strictMode: true
       });      
@@ -187,7 +187,7 @@ async function switchToPolygon(loggedInAddress, chainId = 80001){
 }
 
 async function addFungibleBlockhouseToWallet(loggedInAddress){
-  const tokenAddress = addresses.BH_FungibleSolar_address;
+  const tokenAddress = addresses.BH_FungibleBlockhouse_address;
   const tokenSymbol = 'FBH';
   const tokenDecimals = 18;
   const tokenImage = 'https://blockhouse.jonathanlehner.com/images/blockhouse-icon.jpeg';

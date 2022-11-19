@@ -15,7 +15,7 @@ if(true){
 }
 import Linkify from 'react-linkify';
 import { SecureLink } from "react-secure-link"
-import { stake_HouseT, approve_HouseT_staking, unstake_HouseT } from './contract_functions/BH_FungibleSolar';
+import { stake_HouseT, approve_HouseT_staking, unstake_HouseT } from './contract_functions/BH_FungibleBlockhouse';
 
 export default function DetailsPage() {
   const [nft, setNft] = useState(null);
@@ -50,7 +50,7 @@ export default function DetailsPage() {
                   <h2 className="text-h2 text-rhino font-bold">{nft.name}</h2>
                   <p className="text-p text-manatee mt-2 mb-8">Owned by <Link className="text-dodger" to={`${RoutePaths.ACCOUNT}/${nft.owner}`}>{truncateEthAddress(nft.owner)} {is_admin ? "(Blockhouse Admin)": ""}</Link> 
                     {nft.owner && nft.owner.toLowerCase() == addresses.BH_MarketPlace_address.toLowerCase() ? " (Blockhouse marketplace)" : ""}
-                    {nft.owner && nft.owner.toLowerCase() == addresses.BH_FungibleSolar_address.toLowerCase() ? " (Blockhouse staking)" : ""}
+                    {nft.owner && nft.owner.toLowerCase() == addresses.BH_FungibleBlockhouse_address.toLowerCase() ? " (Blockhouse staking)" : ""}
                   </p>
 
                   {(connected && nft.listed && nft.seller.toLowerCase() === loggedInAddress.toLowerCase()) && (
