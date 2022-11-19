@@ -1,0 +1,6 @@
+{
+  "public": {
+    "baseURL": "https://build.Blockhouse.com/",
+    "isProduction": true
+  }
+}
