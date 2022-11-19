@@ -203,7 +203,7 @@ export default function CustomizedSwitches() {
         {/*<Typography>Testnet (Mumbai)</Typography>
         <AntSwitch disabled name="network" onChange={onChange} defaultChecked={localStorage.getItem("network") == 'true'} inputProps={{ 'aria-label': 'ant design' }} />
         */}
-        <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><Typography>Connect to Mainnet</Typography></a>
+        <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><Typography>Connect to Aurora Mainnet</Typography></a>
       </Stack>
       <Stack direction="row" spacing={1} alignItems="center">
         <Typography>Normal transactions</Typography>
