@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-whisper;
+  }
+}
+
+#logo {
+  height: 100%;
+  top: 0px;
+}
+
+/* note: should make mobile default and change for tablet / PC */
+@media only screen and (max-width: 600px) {
+  /* For mobile: */
+  #logo {
+    height: 100%;
+  }
+
+  .text-dodger {
+    white-space: nowrap;
+  }
+}
