@@ -36,7 +36,7 @@ export default function MintNFTPage() {
         <InputField
           disabled={!is_admin} 
           name='name'
-          label="Name of installation (e.g. Clínica Somer)"
+          label="Address of house (e.g. Hegibachstrasse 110, 8032 Zurich)"
           value={formInput.name}
           classNameContainer="mt-4"
           onChange={e => updateFormInput({ ...formInput, name: e.target.value })}
