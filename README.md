@@ -1,26 +1,19 @@
-# Blockhouse
-BH Marketplace for the NEAR MetaBUILD Hackathon
+# BLOCKHOUSE: MarketPlace for Tokenized RealEstate
+### The Marketplace is live on Aurora: https://blockhouse.jonathanlehner.com/
+Built for the NEAR MetaBUILD Hackathon
+- Buy, Sell and list NFTs representing fractional real estate ownership affordably and securely on the Blockchain.
+- Get your fraction of the rent every month directly in your wallet !
+- Exit your investment easily on our marketplace.
+- Compound your rent revenues automatically.
+- Borrow liquidity using your NFT as collateral.
 
-## Contracts addresses
-Mumbai Testnet (V3 - Upgradable and Gassless):
+*Note that we do not copy nor compete with RealT (https://realt.co/), but rather position ourself as a complementary project. We aim to be a dedicated marketplace where users can exchange and list their RealEstate tokens, and leverage the full benefits of Defi with their illiquid assets. We act as a market maker, and combine tokens from different protocols with real estate partners in different countries. (Switzerland, US)*
 
-- HouseT_NFT = _
-- BH_MarketPlace = _
-- FungibleBlockhouse = _
-  
-## Remarks
-### TODO Jonathan
-- Add wallet connect
-- Add Blockhouse branding
-- Add deploy workflow
+## Contracts
+Aurora Mainet:
+- *HouseT contract address:* 0xbD2E5F72F4749aecAcDB349Dd7B11F395ab72489
+- *MarketPlace contract address:* 0x049d01Ab55be450C01e5C9D411e5010FB45617EA
+- *FungibleBlockhouse contract address:* 0x488Fdf38D90f3d476d48A693bF3Beaf539583298
 
-### TODO Aurelien
-- Implement multisig security, when important actions (withdraws and upgrades) can only be taken if both Aurelien and Jonathan agrees on it and sign. (Gnosis Safe) (1 day) (see [here](https://docs.openzeppelin.com/defender/guide-upgrades))
-
-See https://forum.openzeppelin.com/t/openzeppelin-upgrades-step-by-step-tutorial-for-hardhat/3580
-
-### Done Aurelien
-- Add gassless mode (see [here](https://docs.biconomy.io/products/enable-gasless-transactions/choose-an-approach-to-enable-gasless/eip-2771)) (1-2 days)
-- Make all of them upgradable (see [here](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable))
-- Deploy and update automatically on a livechain with hardhat
-- Write local test with hardhat
+### TODO: (Jonathan)
+- This time, we have fractional ownership, so the main change you should do on the market place is, instead of having one image per NFTs, you should group them together by property (showing stuff like: 200 tokens available). And then once you click on it, you should see the options from cheapest to most expensive. (ppls may list their NFTs at different prices).
