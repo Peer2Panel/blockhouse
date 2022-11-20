@@ -1,18 +1,11 @@
 const https = require('https');
 import {AbortController} from "node-abort-controller";
 import { create as ipfsHttpClient } from 'ipfs-http-client';
-import { Blob } from "buffer";
 import * as fs from 'fs';
-
-require("dotenv").config({ path: ".env" });
-console.log(process.env)
 
 global.AbortController = AbortController;
 const projectId = Meteor.settings.projectId;
 const projectSecret = Meteor.settings.projectSecret;
-
-console.log(projectId)
-console.log(projectSecret)
 
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 const client = ipfsHttpClient({
