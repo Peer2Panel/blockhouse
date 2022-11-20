@@ -6,8 +6,8 @@ import * as fs from 'fs';
 const { Readable } = require('stream');
 
 global.AbortController = AbortController;
-const projectId = '2DEHWaDAbvuSe9H8iSYrpocOdub';
-const projectSecret = '5f2aeb3e7fa3d5ed05e3044fe5bb75a3';
+const projectId = process.env.projectId;
+const projectSecret = process.env.projectSecret;
 
 const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
 const client = ipfsHttpClient({
