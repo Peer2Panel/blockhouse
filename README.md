@@ -10,7 +10,7 @@ Built for the NEAR MetaBUILD Hackathon
 *Note that we do not copy nor compete with RealT (https://realt.co/), but rather position ourself as a complementary project. We aim to be a dedicated marketplace where users can exchange and list their RealEstate tokens, and leverage the full benefits of Defi with their illiquid assets. We provide a marketplace and work with real estate partners in different countries. (Switzerland, Singapore, Korea)*
 
 ## Contracts
-Aurora Mainet:
+Aurora Mainnet:
 - *HouseT contract address:* 0xe8bBF732c32814F6106F286B6BF34E3F27f2551E
 - *MarketPlace contract address:* 0xa12DBBB9B028D5bf9Cd73Fba0B949970Da27C2ed
 - *FungibleBlockhouse contract address:* 0x85e79a5B6ebE7B6f3e569dE2c1932a1722453FCc
