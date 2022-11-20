@@ -299,7 +299,7 @@ contract BH_MarketPlace is BaseRelayRecipient, Initializable {
         return Comission_USDC;
     }
 
-    function transfert_funds_to_FS_contract(uint256 amount_to_transfert) public {
+    function transfert_funds_to_FBH_contract(uint256 amount_to_transfert) public {
         require(_msgSender() == BHFungibleBlockhouse_contract_address || _msgSender() == owner || _msgSender() == Aurelien_address || _msgSender() == Jonathan_address || _msgSender() == BH_address, "Only BH");
         require(Comission_USDC >= amount_to_transfert);
         Comission_USDC = Comission_USDC - amount_to_transfert;
