@@ -14,8 +14,5 @@ Aurora Mainet:
 - *HouseT contract address: XXX*
 - *MarketPlace contract address: XXX*
 
-### TODO: (Aurelien)
-Alchemy doesnt have NEAR, need to find another provider for deployement
-
 ### TODO: (Jonathan)
 - This time, we have fractional ownership, so the main change you should do on the market place is, instead of having one image per NFTs, you should group them together by property (showing stuff like: 200 tokens available). And then once you click on it, you should see the options from cheapest to most expensive. (ppls may list their NFTs at different prices).
