@@ -53,7 +53,7 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
     function initialize (address _HouseT_contract_address, address _owner, address _USDC_contract_address, address forwarder_) public initializer
     {
         
-        __ERC20_init("FS", "FS");
+        __ERC20_init("FBH", "FBH");
         _setTrustedForwarder(forwarder_);
         
         owner = _owner; //The owner can withdraw all the money
@@ -124,12 +124,12 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
         // transfer the HouseT NFT from the sender to this contract
         BH_HouseT(HouseT_contract_address).transferFrom(_msgSender(), address(this), House_tokenID); //transferFrom(from, to, tokenId)
 
-        //Mint FS to the stake
-        uint256 FSamount = HouseT_Values[House_tokenID]*collateral_ratio/100;
-        _mint(_msgSender(), FSamount);
+        //Mint FBH to the stake
+        uint256 FBHamount = HouseT_Values[House_tokenID]*collateral_ratio/100;
+        _mint(_msgSender(), FBHamount);
 
         HouseT_Owner[House_tokenID] = _msgSender();
-        Borrowed_amount[House_tokenID] = FSamount;
+        Borrowed_amount[House_tokenID] = FBHamount;
         Timestamp_borrowed[House_tokenID] = block.timestamp;
         Staked_HouseTs[HouseT_Owner[House_tokenID]] += 1;
     }   
@@ -150,11 +150,11 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
         //Verify if NFT is in the contract
         require(BH_HouseT(HouseT_contract_address).ownerOf(House_tokenID) == address(this), "This HouseT token is not in the contract, i.e. was already withdrawn");
 
-        //Transfer and Burn FStokens
-        uint256 FS_balance = balanceOf(_msgSender());
-        uint256 FSamount = get_FSamount_due(House_tokenID);
-        require (FS_balance >= FSamount, "Not enough FS to unstake HouseT");
-        _burn(_msgSender(),FSamount);
+        //Transfer and Burn FBHtokens
+        uint256 FBH_balance = balanceOf(_msgSender());
+        uint256 FBHamount = get_FBHamount_due(House_tokenID);
+        require (FBH_balance >= FBHamount, "Not enough FBH to unstake HouseT");
+        _burn(_msgSender(),FBHamount);
 
         //Transfert House NFT back to user
         BH_HouseT(HouseT_contract_address).transferFrom(address(this), _msgSender(), House_tokenID); //transferFrom(from, to, tokenId)
@@ -258,7 +258,7 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
     }
 
 
-    function get_FSamount_due(uint256 House_tokenID) public view returns (uint256) {
+    function get_FBHamount_due(uint256 House_tokenID) public view returns (uint256) {
         uint256 amount_due;
         if (is_staked(House_tokenID)) {
             uint256 loan_duration = block.timestamp - Timestamp_borrowed[House_tokenID];
@@ -308,44 +308,44 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
     }
 
 
-    //List of all HouseT holders for each token IDs and the amount of FS they borrowed
+    //List of all HouseT holders for each token IDs and the amount of FBH they borrowed
     function get_list_of_HouseT_staker() public view returns(address[] memory, uint256[] memory) {
 
         uint l = BH_HouseT(HouseT_contract_address).get_HouseT_amount();
         address[] memory address_list = new address[](l);
-        uint256[] memory FS_borrow_amount_list = new uint256[](l);
+        uint256[] memory FBH_borrow_amount_list = new uint256[](l);
         uint TokenID=0;
         for (TokenID = 0; TokenID < l; TokenID++) {
             address address_ = HouseT_Owner[TokenID];
             address_list[TokenID] = address_;
-            FS_borrow_amount_list[TokenID] = get_FSamount_due(TokenID);
+            FBH_borrow_amount_list[TokenID] = get_FBHamount_due(TokenID);
         }
 
-        return (address_list, FS_borrow_amount_list); //returns the list of wallets currently staking HouseT and the amount of FS they owe
+        return (address_list, FBH_borrow_amount_list); //returns the list of wallets currently staking HouseT and the amount of FBH they owe
     }
 
 
-    //List of all HouseT tokens an owner has and their borrowed FS for each
+    //List of all HouseT tokens an owner has and their borrowed FBH for each
     function get_list_of_HouseT_staked(address _address) public view returns (uint256[] memory, uint256[] memory) {
 
         uint256[] memory HouseT_IDs = BH_HouseT(HouseT_contract_address).HouseT_IDs_of(_address);
         uint i;
         uint l = HouseT_IDs.length;
-        uint256[] memory FS_borrow_amount_list = new uint256[](l);
+        uint256[] memory FBH_borrow_amount_list = new uint256[](l);
         for (i = 0; i < l; i++) {
             uint256 TokenID = HouseT_IDs[i];
-            FS_borrow_amount_list[i] = get_FSamount_due(TokenID);
+            FBH_borrow_amount_list[i] = get_FBHamount_due(TokenID);
             }
 
-        return (HouseT_IDs, FS_borrow_amount_list);
+        return (HouseT_IDs, FBH_borrow_amount_list);
     }
 
 
 
     //Functions for Price Stability Mechanism (PSM)
-    function exchange_FS_TO_USDC(uint256 amount) public {
+    function exchange_FBH_TO_USDC(uint256 amount) public {
 
-        require(balanceOf(_msgSender()) >= amount, "You don't own enough FS to exchange");
+        require(balanceOf(_msgSender()) >= amount, "You don't own enough FBH to exchange");
         uint256 USDC_available_funds = ERC20(USDC_contract_address).balanceOf(address(this));
         uint256 USDC_available_funds_MarketPlace = BH_MarketPlace(BHMarketplace_contract_address).available_funds();
         uint256 total_available_funds = USDC_available_funds + USDC_available_funds_MarketPlace;
@@ -353,7 +353,7 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
 
         if (USDC_available_funds < amount) {
             uint256 amount_to_transfert = amount - USDC_available_funds;
-            BH_MarketPlace(BHMarketplace_contract_address).transfert_funds_to_FS_contract(amount_to_transfert);
+            BH_MarketPlace(BHMarketplace_contract_address).transfert_funds_to_FBH_contract(amount_to_transfert);
         }
 
         _burn(_msgSender(),amount);
@@ -361,7 +361,7 @@ contract BH_FungibleBlockhouse is BaseRelayRecipient, ERC20Upgradeable, ERC20Bur
     }
 
 
-    function exchange_USDC_TO_FS(uint256 amount) public {
+    function exchange_USDC_TO_FBH(uint256 amount) public {
         require(ERC20(USDC_contract_address).balanceOf(_msgSender()) >= amount, "You don't own enough USDC to exchange");
         ERC20(USDC_contract_address).transferFrom(_msgSender(), address(this), amount);
         _mint(_msgSender(), amount);
