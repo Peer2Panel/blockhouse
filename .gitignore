@@ -4,7 +4,8 @@ cache/
 .openzeppelin/
 artifacts/
 
-
+nft-marketplace/.deploy/settings.json
+settings.json
 
 # Logs
 logs
