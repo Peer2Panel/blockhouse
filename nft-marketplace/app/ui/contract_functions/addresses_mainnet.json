@@ -1,8 +1,8 @@
 {
-    "USDC_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-	"BH_HouseT_address": "0xc040CF64d7f817D6b2142Ec746Ce1e162e613555",
-    "BH_MarketPlace_address": "0x29566d6a99b186adD2d7692742614818C1ed66D4",
-	"BH_FungibleBlockhouse_address": "0xdE93Af2B7C358a60dff6A1b7aBF8B177015c755f"
+    "USDC_address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
+	"BH_HouseT_address": "0xcb037DC058C8331Dd6AFDe2f1aa143007ce209Ac",
+    "BH_MarketPlace_address": "0x48A89BA403D049fda25a0fe5a5Ff4F1B41dc541b",
+	"BH_FungibleBlockhouse_address": "0x4Ebe39dFe0b00B694d59a6Faae461aFa6a791e79"
 }
 
 
