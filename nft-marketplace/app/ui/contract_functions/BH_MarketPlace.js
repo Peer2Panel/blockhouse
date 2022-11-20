@@ -79,9 +79,9 @@ async function list_HouseT(loggedInAddress, tokenID = "", listing_price = "", se
   const signer = await getSigner(loggedInAddress);
   const contract = new ethers.Contract(BH_MarketPlace_address, BH_MarketPlace_abi.abi, signer);
 
-  const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+  const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   
-  const approved_address = await solarTContract.getApproved(tokenID);
+  const approved_address = await houseTContract.getApproved(tokenID);
   if(approved_address != BH_MarketPlace_address){
     setApprove(true);
     return;
@@ -104,9 +104,9 @@ async function approve_HouseT(loggedInAddress, tokenID = "", listing_price = "",
     tokenID = document.getElementById("tokenID").value;
   }
   const signer = await getSigner(loggedInAddress);
-  const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+  const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   //alert("Please approve listing your token.")
-  const transactiona = await solarTContract.approve_listing(tokenID);
+  const transactiona = await houseTContract.approve_listing(tokenID);
   await transactiona.wait();
   setApprove(false);
 }
@@ -118,10 +118,10 @@ async function list_HouseT_batch(loggedInAddress, tokenID = "", listing_price = 
   const signer = await getSigner(loggedInAddress);
   const contract = new ethers.Contract(BH_MarketPlace_address, BH_MarketPlace_abi.abi, signer);
 
-  const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+  const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   
   alert("Please approve listing your token.")
-  //const transactiona = await solarTContract.approve_listing_batch(tokenIDs);
+  //const transactiona = await houseTContract.approve_listing_batch(tokenIDs);
   //await transactiona.wait();
 
   // accepts ether value as input
@@ -148,7 +148,7 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
   //console.log("lNFT1")
   let signer;
   if(loadAll){
-    const provider = new ethers.providers.JsonRpcProvider('https://polygon-rpc.com');
+    const provider = new ethers.providers.JsonRpcProvider('https://aurora-mainnet.infura.io/v3/40ebc8fff15d4ca6aaa594d4d87710cd');
     signer = provider.getSigner(loggedInAddress);
     //console.log(signer)
   }
@@ -156,14 +156,14 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
     signer = await getSimpleSigner(loggedInAddress);
   }
 
-  const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-  const allInfo = await solarTContract.get_all_HouseT_info();
+  const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+  const allInfo = await houseTContract.get_all_HouseT_info();
   const [addresses, metadata, listed, staked, concatenated_uint] = allInfo;
   const [bookvalue, listing_prices, earned_profits,remaining_payment_list] = concatenated_uint;
   const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleBlockhouse_address, BH_FungibleBlockhouse_abi.abi, signer);
 
-  const ownerList_Marketplace = await solarTContract.get_list_of_solarT_owner();
-  const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_solarT_staker())["0"];
+  const ownerList_Marketplace = await houseTContract.get_list_of_HouseT_owner();
+  const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_HouseT_staker())["0"];
   let myTokenIDs;
   if(loadAll){
     myTokenIDs = ownerList_Marketplace.map((_, idx) => idx);
@@ -175,7 +175,7 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
   }
 
   const processTokenId = async (tokenId) => {
-    //const tokenURI = await solarTContract.tokenURI(tokenId);
+    //const tokenURI = await houseTContract.tokenURI(tokenId);
     const tokenURI = metadata[tokenId];
     const meta = JSON.parse(await (await fetch(`${tokenURI}`).then((response) => {
       return response.text();
@@ -229,13 +229,13 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
 async function loadNFT(loggedInAddress, tokenId, setNft, setLoadingState) {
   const signer = await getSimpleSigner(loggedInAddress);
 
-  const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-  const tokenURI = await solarTContract.tokenURI(parseInt(tokenId));
+  const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+  const tokenURI = await houseTContract.tokenURI(parseInt(tokenId));
   const fungibleBlockhouseContract = new ethers.Contract(BH_FungibleBlockhouse_address, BH_FungibleBlockhouse_abi.abi, signer);
   const marketPlaceContract = new ethers.Contract(BH_MarketPlace_address, BH_MarketPlace_abi.abi, signer);
-  const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_solarT_staker())["0"];
+  const ownerList_Staking = (await fungibleBlockhouseContract.get_list_of_HouseT_staker())["0"];
 
-  const ownerList_Marketplace = await solarTContract.get_list_of_solarT_owner();
+  const ownerList_Marketplace = await houseTContract.get_list_of_HouseT_owner();
   console.log(tokenURI)
   const meta = JSON.parse(await (await fetch(`${tokenURI}`).then((response) => {
     return response.text();
@@ -249,7 +249,7 @@ async function loadNFT(loggedInAddress, tokenId, setNft, setLoadingState) {
   const priceBigInt = await fungibleBlockhouseContract.HouseT_Values(parseInt(tokenId));
   const price_ = priceBigInt / 10**6 || 0;
   const price = price_ < 0.001 ? 0 : price_;
-  const earned_profit_BigInt = await solarTContract.Generated_profit_per_panel(parseInt(tokenId))
+  const earned_profit_BigInt = await houseTContract.Generated_profit_per_panel(parseInt(tokenId))
   const earned_profit = earned_profit_BigInt / 10**6 || 0;
   const remaining_payments = await fungibleBlockhouseContract.HouseT_Remaining_payments(parseInt(tokenId));
 

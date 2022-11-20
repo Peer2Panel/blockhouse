@@ -31,10 +31,10 @@ async function stake_HouseT(loggedInAddress, tokenID = "", setApproveStaking = (
     }
     const signer = await getSigner(loggedInAddress);
     const contract = new ethers.Contract(BH_FungibleBlockhouse_address, BH_FungibleBlockhouse_abi.abi, signer);
-    const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+    const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
 
-    // const owner = await solarTContract.ownerOf(tokenID);
-    //const is_verified = await solarTContract.is_in_whitelist(loggedInAddress);
+    // const owner = await houseTContract.ownerOf(tokenID);
+    //const is_verified = await houseTContract.is_in_whitelist(loggedInAddress);
   
     //console.log(owner)
     /*if(!is_verified){
@@ -42,7 +42,7 @@ async function stake_HouseT(loggedInAddress, tokenID = "", setApproveStaking = (
       return;
     }*/
 
-    const approved_address = await solarTContract.getApproved(tokenID);
+    const approved_address = await houseTContract.getApproved(tokenID);
     if(approved_address != BH_FungibleBlockhouse_address){
       setApproveStaking(true);
       return;
@@ -58,8 +58,8 @@ async function approve_HouseT_staking(loggedInAddress, tokenID = "", setApproveS
       tokenID = document.getElementById("tokenID").value;
     }
     const signer = await getSigner(loggedInAddress);
-    const solarTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-    const transactiona = await solarTContract.approve_staking(tokenID);
+    const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
+    const transactiona = await houseTContract.approve_staking(tokenID);
     await transactiona.wait();
 
     setApproveStaking(false);
