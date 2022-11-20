@@ -5,6 +5,7 @@ cache/
 artifacts/
 
 nft-marketplace/.deploy/settings.json
+nft-marketplace/settings.json
 settings.json
 
 # Logs
