@@ -18,12 +18,6 @@ const BH_FungibleBlockhouse_address_mainnet = addresses_mainnet.BH_FungibleBlock
 const BH_HouseT_address_mainnet = addresses_mainnet.BH_HouseT_address;
 const BH_MarketPlace_address_mainnet = addresses_mainnet.BH_MarketPlace_address;
 
-const mainnet = "https://polygon-mainnet.infura.io/v3/52d870bea786485393defdf70053a904";
-const mumbai = "https://polygon-mumbai.infura.io/v3/52d870bea786485393defdf70053a904";
-
-//const mainnet_vigil = "https://rpc-mainnet.maticvigil.com/v1/d18c4ef3633bbba571022437f4755bc505138762"
-//const testnet_vigil = "https://rpc-mumbai.maticvigil.com/v1/d18c4ef3633bbba571022437f4755bc505138762", // or infuraId
-
 function getWeb3Modal() {
   //const network_status = localStorage.getItem("network") == "true";
   const providerOptions = getProviderOptions();
@@ -43,7 +37,7 @@ function delay(time) {
 }
 
 async function getSimpleSigner(loggedInAddress) {
-  const provider = new ethers.providers.JsonRpcProvider('https://polygon-rpc.com');
+  const provider = new ethers.providers.JsonRpcProvider('https://aurora-mainnet.infura.io/v3/40ebc8fff15d4ca6aaa594d4d87710cd');
   const signer = provider.getSigner(loggedInAddress);
   return signer;
 }
@@ -119,7 +113,10 @@ async function onChangeIPFS(e, setFileUrl) {
   const file = e.target.files[0];
   try {
     await Meteor.call("uploadToIPFS", {file: await getBase64(file)}, (error, result) => { 
+      console.log("onChangeIPFS");
+      console.log(result);
       const url = `https://blockhouse.infura-ipfs.io/ipfs/${result.path}`;
+      console.log(url);
       setFileUrl(url);
      }
     );

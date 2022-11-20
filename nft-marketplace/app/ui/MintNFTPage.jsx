@@ -54,7 +54,7 @@ export default function MintNFTPage() {
         <InputField
           disabled={!is_admin} 
           name='serialnumber'
-          label="Serial number of solar panel"
+          label="Registration number of company (AG)"
           value={formInput.serialnumber}
           classNameContainer="mt-4"
           onChange={e => updateFormInput({ ...formInput, serialnumber: e.target.value })}

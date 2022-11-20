@@ -2,8 +2,8 @@ import WalletConnect from "@walletconnect/web3-provider";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import { Web3Auth } from "@web3auth/web3auth";
 
-const mainnet = "https://polygon-mainnet.infura.io/v3/52d870bea786485393defdf70053a904";
-const mumbai = "https://polygon-mumbai.infura.io/v3/52d870bea786485393defdf70053a904";
+const mainnet = "https://aurora-mainnet.infura.io/v3/40ebc8fff15d4ca6aaa594d4d87710cd";
+const testnet = "https://aurora-testnet.infura.io/v3/40ebc8fff15d4ca6aaa594d4d87710cd";
 const REACT_APP_INFURA_ID = "52d870bea786485393defdf70053a904";
 
 export function getProviderOptions(){
@@ -16,7 +16,7 @@ export function getProviderOptions(){
           rpc: {
             1: mainnet,
             137: mainnet,
-            80001: mumbai
+            80001: testnet
           },
         }
       },    
@@ -27,7 +27,7 @@ export function getProviderOptions(){
           rpc: {
             1: mainnet,
             137: mainnet,
-            80001: mumbai
+            80001: testnet
           },
         }
       },
@@ -39,7 +39,7 @@ export function getProviderOptions(){
           rpc: {
             1: mainnet,
             137: mainnet,
-            80001: mumbai
+            80001: testnet
           },
         }
       },
@@ -50,7 +50,7 @@ export function getProviderOptions(){
           rpc: {
             1: mainnet,
             137: mainnet,
-            80001: mumbai
+            80001: testnet
           },
         }
       }
