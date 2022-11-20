@@ -13,6 +13,7 @@ Built for the NEAR MetaBUILD Hackathon
 Aurora Mainet:
 - *HouseT contract address: XXX*
 - *MarketPlace contract address: XXX*
+- *FungibleBlockhouse contract address: XXX*
 
 ### TODO: (Jonathan)
 - This time, we have fractional ownership, so the main change you should do on the market place is, instead of having one image per NFTs, you should group them together by property (showing stuff like: 200 tokens available). And then once you click on it, you should see the options from cheapest to most expensive. (ppls may list their NFTs at different prices).
