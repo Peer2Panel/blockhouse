@@ -1,10 +1,6 @@
 {
     "USDC_address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
-	"BH_HouseT_address": "0xcb037DC058C8331Dd6AFDe2f1aa143007ce209Ac",
-    "BH_MarketPlace_address": "0x48A89BA403D049fda25a0fe5a5Ff4F1B41dc541b",
-	"BH_FungibleBlockhouse_address": "0x4Ebe39dFe0b00B694d59a6Faae461aFa6a791e79"
+	"BH_HouseT_address": "0xbD2E5F72F4749aecAcDB349Dd7B11F395ab72489",
+    "BH_MarketPlace_address": "0x488Fdf38D90f3d476d48A693bF3Beaf539583298",
+	"BH_FungibleBlockhouse_address": "0x049d01Ab55be450C01e5C9D411e5010FB45617EA"
 }
-
-
-
-
