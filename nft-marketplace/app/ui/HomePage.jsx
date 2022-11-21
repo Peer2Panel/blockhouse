@@ -130,7 +130,7 @@ export default function HomePage() {
           <>
             <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto">
               {items.slice(0, loadMore).map((nft) => (
-                <Card groupedByHouse={groupedByHouse} num_tokens={groupedByHouse && selectedHouse == "" ? nft.num_tokens : 0} setSelectedHouse={(x) => setSelectedHouse(x)} key={nft.tokenId} itemImg={nft.image} itemName={nft.name} itemPrice={nft.listing_price} itemId={nft.tokenId} monthlyRevenue={nft.monthly_return} itemCountry={nft.itemCountry} remaining_payments={nft.remaining_payments.toString()}/>
+                <Card groupedByHouse={groupedByHouse && selectedHouse == "" ? true : false} num_tokens={groupedByHouse && selectedHouse == "" ? nft.num_tokens : 0} setSelectedHouse={(x) => setSelectedHouse(x)} key={nft.tokenId} itemImg={nft.image} itemName={nft.name} itemPrice={nft.listing_price} itemId={nft.tokenId} monthlyRevenue={nft.monthly_return} itemCountry={nft.itemCountry} remaining_payments={nft.remaining_payments.toString()}/>
               ))}
             </div>
 
