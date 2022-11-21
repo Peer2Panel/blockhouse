@@ -34,6 +34,7 @@ export default function DetailsPage() {
     loadNFT(loggedInAddress, itemId, setNft, setLoadingState);
   }, []);
 
+  console.log(nft);
 
   return (
     <>

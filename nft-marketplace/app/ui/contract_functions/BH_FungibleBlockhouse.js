@@ -51,6 +51,7 @@ async function stake_HouseT(loggedInAddress, tokenID = "", setApproveStaking = (
     const transaction = await contract.stake_HouseT(tokenID);
     
     await transaction.wait();
+    location.reload();
   }
 
 async function approve_HouseT_staking(loggedInAddress, tokenID = "", setApproveStaking = ()=>{}) {
@@ -75,6 +76,7 @@ async function unstake_HouseT(loggedInAddress, tokenID = "") {
   const transaction = await contract.unstake_HouseT(tokenID);
   
   await transaction.wait();
+  location.reload();
 }
 
 async function update_HouseT_value(loggedInAddress) {

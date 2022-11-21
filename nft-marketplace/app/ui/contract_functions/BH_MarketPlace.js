@@ -50,6 +50,8 @@ async function buy_HouseT(loggedInAddress, tokenID = "", setApprove = ()=>{}) {
     const contract = new ethers.Contract(BH_MarketPlace_address, BH_MarketPlace_abi.abi, signer);
     const transaction = await contract.buy_HouseT(tokenID);
     await transaction.wait();
+
+    location.reload()
   }
 
 async function approve_USDC(loggedInAddress, tokenID = "", setApprove = ()=>{}) {
@@ -97,9 +99,10 @@ async function list_HouseT(loggedInAddress, tokenID = "", listing_price = "", se
 
   //await loadNFT();
   setSellItem(false);
+  location.reload();
 }
 
-async function approve_HouseT(loggedInAddress, tokenID = "", listing_price = "", setApprove = ()=>{}) {
+async function approve_HouseT(loggedInAddress, tokenID = "", setApprove = ()=>{}) {
   if(tokenID == ""){
     tokenID = document.getElementById("tokenID").value;
   }
@@ -142,6 +145,7 @@ async function unlist_HouseT(loggedInAddress, tokenID = "") {
   await transaction.wait();
 
   await loadNFT();
+  location.reload();
 }
 
 async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = false) {
@@ -245,7 +249,7 @@ async function loadNFT(loggedInAddress, tokenId, setNft, setLoadingState) {
   })));
   const listing_price_BigInt = (await marketPlaceContract.HouseT_Price(tokenId));
   const listing_price = listing_price_BigInt / 10**6 || 0;
-  const is_listed = listing_price != 0;
+  const is_listed = await marketPlaceContract.HouseT_Owner(tokenId) !=0;
   const is_staked = await fungibleBlockhouseContract.HouseT_Owner(tokenId) !=0;
 
   const badge = is_listed ? "for sale" : is_staked ? "staked" : "owned";
