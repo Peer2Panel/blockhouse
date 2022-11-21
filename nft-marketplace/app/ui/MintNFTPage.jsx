@@ -107,7 +107,7 @@ export default function MintNFTPage() {
             await list_HouseT_batch(loggedInAddress);
             await update_URI(loggedInAddress, 0, "");
           }} />*/}
-        {!is_admin ? <div style={{padding: "10px"}}><i>Only admins can update tokens.</i></div> : ""}
+        {/*!is_admin ? <div style={{padding: "10px"}}><i>Only admins can update tokens.</i></div> : ""*/}
       </div>
     </div>
   )
