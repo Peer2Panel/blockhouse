@@ -126,7 +126,7 @@ async function onChangeIPFS(e, setFileUrl) {
 }
 
 async function uploadToIPFS (formInput, fileUrl, callback) {
-  let { name, serialnumber, description, price, total_number_payments, country } = formInput;
+  let { name, serialnumber, description, price, country } = formInput;
   description = description || " "; // add default for description, which seems not working from form
   if (!name || !serialnumber || !description || !price || !fileUrl || !country) {
     console.log(name)
@@ -134,14 +134,13 @@ async function uploadToIPFS (formInput, fileUrl, callback) {
     console.log(description)
     console.log(price)
     console.log(fileUrl)
-    console.log(total_number_payments)
     console.log(country)
     alert("Please fill out all fields!")
     return -1;
   }
   /* first, upload to IPFS */
   const data = JSON.stringify({
-    name, serialnumber, description, image: fileUrl, expected_return: price, total_number_payments, country
+    name, serialnumber, description, image: fileUrl, expected_return: price, country
   });
   try {
     await Meteor.call("uploadToIPFSSimple", {data}, (error, result) => { 
