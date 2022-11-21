@@ -44,7 +44,7 @@ export default function HomePage() {
   }, [sortBy, loadMore]);
 
   //console.log(nfts)
-  items = nfts.filter(nft => nft.listed == true && (nft.itemCountry == country || country == "" || country == "All cantons"));
+  items = nfts.filter(nft => nft.listed == true && (nft.itemCountry == country || country == "" || country == "All countries"));
 
   if (sortBy === 'oldest') {
     items.sort((a,b) => a.tokenId - b.tokenId); // b - a for reverse sort
@@ -65,7 +65,10 @@ export default function HomePage() {
     items = house_names.map(house_name => {
       const count = [...items].reduce((total, item) => (item.name == house_name ? total+1 : total), 0);
       const item = [...items].find((item) => item.name == house_name);
+      const prices = [...items].filter(item=>item.name == house_name).map((item) => item.listing_price)
       item.num_tokens = count;
+      item.min_price = Math.min(...prices);
+      item.max_price = Math.max(...prices);
       return item;
     });
   }
@@ -108,7 +111,8 @@ export default function HomePage() {
                         setCountry(e.target.value);
                         setLoadMore(loadMoreInitialState);
                       }}>
-                        {["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (
+                        {/*["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (*/}
+                        {["All countries", "Switzerland", "Germany", "Austria", "Singapore", "Korea"].map((option) => (
                           <option key={option} value={option}>{option}</option>
                         ))}
                       </Select>
@@ -130,7 +134,20 @@ export default function HomePage() {
           <>
             <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto">
               {items.slice(0, loadMore).map((nft) => (
-                <Card groupedByHouse={groupedByHouse && selectedHouse == "" ? true : false} num_tokens={groupedByHouse && selectedHouse == "" ? nft.num_tokens : 0} setSelectedHouse={(x) => setSelectedHouse(x)} key={nft.tokenId} itemImg={nft.image} itemName={nft.name} itemPrice={nft.listing_price} itemId={nft.tokenId} monthlyRevenue={nft.monthly_return} itemCountry={nft.itemCountry} remaining_payments={nft.remaining_payments.toString()}/>
+                <Card 
+                  groupedByHouse={groupedByHouse && selectedHouse == "" ? true : false} 
+                  num_tokens={groupedByHouse && selectedHouse == "" ? nft.num_tokens : 0} 
+                  min_price={nft.min_price}
+                  max_price={nft.max_price}
+                  setSelectedHouse={(x) => setSelectedHouse(x)} 
+                  key={nft.tokenId} 
+                  itemImg={nft.image} 
+                  itemName={nft.name} 
+                  itemPrice={nft.listing_price} 
+                  itemId={nft.tokenId} 
+                  monthlyRevenue={nft.monthly_return} 
+                  itemCountry={nft.itemCountry} 
+                  remaining_payments={nft.remaining_payments.toString()}/>
               ))}
             </div>
 

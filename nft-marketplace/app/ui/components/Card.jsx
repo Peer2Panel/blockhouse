@@ -10,6 +10,8 @@ export const Card = ({
   children,
   groupedByHouse = false,
   num_tokens = 0,
+  min_price = 0,
+  max_price = 0,
   setSelectedHouse = () => {},
   className = '',
   itemImg = null,
@@ -47,7 +49,7 @@ export const Card = ({
         
         {groupedByHouse ? 
           <div className="flex justify-between items-start">
-            <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b> Click see {num_tokens} tokens</p>
+            <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b>{num_tokens > 1 ? <span> Click see {num_tokens} tokens. ${min_price} - ${max_price}.</span> : <span> Click see 1 token. ${max_price}.</span>}</p>
           </div>
         :
           <div className="flex justify-between items-start">
