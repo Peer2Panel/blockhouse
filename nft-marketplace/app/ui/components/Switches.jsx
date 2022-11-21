@@ -139,7 +139,7 @@ const IOSSwitch = styled((props) => (
   },
 }));
 
-const AntSwitch = styled(Switch)(({ theme }) => ({
+export const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
   height: 16,
   padding: 0,

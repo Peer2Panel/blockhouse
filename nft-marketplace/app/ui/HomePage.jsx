@@ -7,6 +7,7 @@ import { SortOptions } from "./common/SortOptions";
 import { loadNFTs } from './contract_functions/BH_MarketPlace';
 import { useOutletContext } from "react-router-dom";
 import { switchToNEAR } from "./contract_functions/utils";
+import { AntSwitch } from './components/Switches.jsx';
 
 export default function HomePage() {
   const [nfts, setNfts] = useState([]);
@@ -18,6 +19,8 @@ export default function HomePage() {
   const [web3, connection, setConnection, onConnect, resetApp, loggedInAddress] = useOutletContext();
   const [chainId, setChainId] = useState("loading");
   const [country, setCountry] = useState("");
+  const [groupedByHouse, setGroupedByHouse] = useState(true);
+  const [selectedHouse, setSelectedHouse] = useState("");
 
   loadChainId = async () => {
     //console.log(web3)
@@ -52,14 +55,24 @@ export default function HomePage() {
   } else if (sortBy === 'price-high') {
     items.sort((a,b) => b.price - a.price); // b - a for reverse sort
   }
-  //console.log(items)
-  //console.log(loadingState)
-  //console.log(chainId)
   
-  const onMumbai = chainId == 1313161556;
+  if(selectedHouse != ""){
+    items = items.filter((item) => item.name == selectedHouse);
+    console.log(items)
+  }
+  else if(groupedByHouse){
+    house_names = [...new Set(items.map((item) => item.name))];
+    items = house_names.map(house_name => {
+      const count = [...items].reduce((total, item) => (item.name == house_name ? total+1 : total), 0);
+      const item = [...items].find((item) => item.name == house_name);
+      item.num_tokens = count;
+      return item;
+    });
+  }
+
+  const onTestnet = chainId == 1313161556;
   const onMainnet = chainId == 1313161554;
 
-  //console.log("rendering mainpage")
   const switcher = <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}>Connect to Aurora Mainnet</a>;
   return (
     <>
@@ -75,28 +88,40 @@ export default function HomePage() {
         </div>
       </div>
       <div style={{minHeight: "650px"}} className="max-w-7xl mx-auto mt-16 pt-2.5 px-2 sm:px-6 lg:px-8">
-        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onMumbai ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span>You are on chain {chainId}. Please connect to the Aurora Mainnet (1313161554). {switcher}</span> : ""}
+        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onTestnet ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span>You are on chain {chainId}. Please connect to the Aurora Mainnet (1313161554). {switcher}</span> : ""}
         <div>
             <div className="flex items-center justify-between mb-5">
               <h2 id="allnfts" className="text-h2 text-rhino font-bold">All NFTs</h2>
-                <div>
+                <div style={{display: "flex"}}>
                   {loadingState != 'loaded' ? "Loading... " : ""}
-                  <Select onChange={e => {
-                    setCountry(e.target.value);
-                    setLoadMore(loadMoreInitialState);
-                  }}>
-                    {["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (
-                      <option key={option} value={option}>{option}</option>
-                    ))}
-                  </Select>
-                  <Select onChange={e => {
-                    setSortBy(e.target.value);
-                    setLoadMore(loadMoreInitialState);
-                  }}>
-                    {SortOptions.map((option) => (
-                      <option key={option.value} value={option.value}>{option.label}</option>
-                    ))}
-                  </Select>
+                  <span>
+                    {selectedHouse ? 
+                      <div>Selected: {selectedHouse} <a hred={"#"} style={{textDecoration: "underline", cursor: "pointer"}}onClick={()=>setSelectedHouse("")}><b>X</b></a></div> : 
+                    <span style={{display: "flex", padding: "10px"}}>
+                      <span style={{marginTop: "15px", marginLeft: "10px", marginRight: "5px"}}>
+                        Group by house
+                      </span>  
+                      <span style={{marginTop: "20px", marginLeft: "10px", marginRight: "10px"}}>
+                        <AntSwitch onChange={(e) => {console.log(e.target.checked); setGroupedByHouse(e.target.checked)}} checked={groupedByHouse} inputProps={{ 'aria-label': 'ant design' }} />
+                      </span>
+                      <Select onChange={e => {
+                        setCountry(e.target.value);
+                        setLoadMore(loadMoreInitialState);
+                      }}>
+                        {["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (
+                          <option key={option} value={option}>{option}</option>
+                        ))}
+                      </Select>
+                      <Select onChange={e => {
+                        setSortBy(e.target.value);
+                        setLoadMore(loadMoreInitialState);
+                      }}>
+                        {SortOptions.map((option) => (
+                          <option key={option.value} value={option.value}>{option.label}</option>
+                        ))}
+                      </Select>
+                    </span>}
+                  </span>
               </div>
             </div>
         {(loadingState == 'loaded' && items.length == 0 && country != "" && country != "All countries") ? (
@@ -105,7 +130,7 @@ export default function HomePage() {
           <>
             <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto">
               {items.slice(0, loadMore).map((nft) => (
-                <Card key={nft.tokenId} itemImg={nft.image} itemName={nft.name} itemPrice={nft.listing_price} itemId={nft.tokenId} monthlyRevenue={nft.monthly_return} itemCountry={nft.itemCountry} remaining_payments={nft.remaining_payments.toString()}/>
+                <Card groupedByHouse={groupedByHouse} num_tokens={groupedByHouse && selectedHouse == "" ? nft.num_tokens : 0} setSelectedHouse={(x) => setSelectedHouse(x)} key={nft.tokenId} itemImg={nft.image} itemName={nft.name} itemPrice={nft.listing_price} itemId={nft.tokenId} monthlyRevenue={nft.monthly_return} itemCountry={nft.itemCountry} remaining_payments={nft.remaining_payments.toString()}/>
               ))}
             </div>
 

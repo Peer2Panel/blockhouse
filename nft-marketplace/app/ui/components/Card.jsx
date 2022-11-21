@@ -8,6 +8,9 @@ import {
 
 export const Card = ({
   children,
+  groupedByHouse = false,
+  num_tokens = 0,
+  setSelectedHouse = () => {},
   className = '',
   itemImg = null,
   itemName = null,
@@ -23,7 +26,7 @@ export const Card = ({
 }) => {
   const badgeBackgroundColor = (badge === "owned") ? "bg-burst" : (badge === "for sale") ? "bg-dodger" : "bg-rhino";
   return (
-    <div className={`cursor-pointer ${className}`} onClick={() => window.open(`${RoutePaths.DETAILS}/${itemId}`, target="_blank")}>
+    <div className={`cursor-pointer ${className}`} onClick={() => num_tokens == 0 ? window.open(`${RoutePaths.DETAILS}/${itemId}`, target="_blank") : setSelectedHouse(itemName)}>
       <div className="relative rounded-t-lg max-h-80 flex items-center overflow-hidden">
         {badge && (
           <p className={`absolute top-0 left-0 text-small text-white font-medium uppercase rounded-br-lg py-1 px-2 ${badgeBackgroundColor}`}>{badge}</p>
@@ -42,9 +45,15 @@ export const Card = ({
           <p className="text-p text-manatee">HouseT #{itemId}</p>
         </div>
         
-        <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b> {itemPrice} USDC</p>
-        </div>
+        {groupedByHouse ? 
+          <div className="flex justify-between items-start">
+            <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b> Click see {num_tokens} tokens</p>
+          </div>
+        :
+          <div className="flex justify-between items-start">
+            <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b> {itemPrice} USDC</p>
+          </div>
+        }
         <div className="flex justify-between items-start">
           <p className="text-p text-rhino"><b>Est. income: </b> ~ ${monthlyRevenue}/month</p>
         </div>
