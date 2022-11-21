@@ -14,6 +14,3 @@ Aurora Mainnet:
 - *HouseT contract address:* 0xe8bBF732c32814F6106F286B6BF34E3F27f2551E
 - *MarketPlace contract address:* 0x85e79a5B6ebE7B6f3e569dE2c1932a1722453FCc
 - *FungibleBlockhouse contract address:* 0xa12DBBB9B028D5bf9Cd73Fba0B949970Da27C2ed
-
-### TODO: (Jonathan)
-- This time, we have fractional ownership, so the main change you should do on the market place is, instead of having one image per NFTs, you should group them together by property (showing stuff like: 200 tokens available). And then once you click on it, you should see the options from cheapest to most expensive. (ppls may list their NFTs at different prices).
