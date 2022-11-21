@@ -128,7 +128,7 @@ async function onChangeIPFS(e, setFileUrl) {
 async function uploadToIPFS (formInput, fileUrl, callback) {
   let { name, serialnumber, description, price, total_number_payments, country } = formInput;
   description = description || " "; // add default for description, which seems not working from form
-  if (!name || !serialnumber || !description || !price || !fileUrl || !total_number_payments || !country) {
+  if (!name || !serialnumber || !description || !price || !fileUrl || !country) {
     console.log(name)
     console.log(serialnumber)
     console.log(description)

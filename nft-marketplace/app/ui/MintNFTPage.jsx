@@ -102,11 +102,11 @@ export default function MintNFTPage() {
           } />
         {!is_admin ? <div style={{padding: "10px"}}><i>Only admins can mint tokens.</i></div> : ""}
 
-        <Button disabled={!is_admin} className="mt-4" text="Update URI" onClick={async ()=>{
+        {/*<Button disabled={!is_admin} className="mt-4" text="Update URI" onClick={async ()=>{
             console.log(JSON.stringify(formInput));
             await list_HouseT_batch(loggedInAddress);
             await update_URI(loggedInAddress, 0, "");
-          }} />
+          }} />*/}
         {!is_admin ? <div style={{padding: "10px"}}><i>Only admins can update tokens.</i></div> : ""}
       </div>
     </div>
