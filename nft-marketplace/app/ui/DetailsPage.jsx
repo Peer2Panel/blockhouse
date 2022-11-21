@@ -140,11 +140,10 @@ export default function DetailsPage() {
                   <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
                   <p className="text-p text-manatee font-light mt-3">Token ID: <span className="text-rhino">{nft.tokenId}</span></p>
                   <p className="text-p text-manatee font-light mt-3">Country: <span className="text-rhino">{nft.itemCountry}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Serial number #: <span className="text-rhino">{nft.serialnumber || ""}</span></p>
+                  <p className="text-p text-manatee font-light mt-3">Company registration number #: <span className="text-rhino">{nft.serialnumber || ""}</span></p>
                   <p className="text-p text-manatee font-light mt-3">Book value: $<span className="text-rhino">{nft.price}</span></p>
                   <p className="text-p text-manatee font-light mt-3">Estimated monthly income: $<span className="text-rhino">{nft.monthly_return}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Remaining payments: <span className="text-rhino">{nft.remaining_payments}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino"> ~ 14%</span></p>
+                  <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino"> ~ 8%</span></p>
                 </div>
               </>
             ) : (

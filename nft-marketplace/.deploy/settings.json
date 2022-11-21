@@ -1,9 +1,9 @@
 {
   "public": {
-    "baseURL": "https://build.Blockhouse.com/",
-    "isProduction": true,
-    "REACT_APP_INFURA_ID": "52d870bea786485393defdf70053a904",
-    "projectId": "2Hp31kZxXkNBQP6xdlgxEhYaTZ8",
-    "projectSecret": "daef8b9333e88ee3c34198a53ec6a9b3"
-  }
+    "baseURL": "https://blockhouse.jonathanlehner.com/",
+    "isProduction": true
+  },
+  "REACT_APP_INFURA_ID": "52d870bea786485393defdf70053a904",
+  "projectId": "2Hp31kZxXkNBQP6xdlgxEhYaTZ8",
+  "projectSecret": "daef8b9333e88ee3c34198a53ec6a9b3"
 }

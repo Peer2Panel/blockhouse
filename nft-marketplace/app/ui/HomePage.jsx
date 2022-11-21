@@ -100,7 +100,7 @@ export default function HomePage() {
               </div>
             </div>
         {(loadingState == 'loaded' && items.length == 0 && country != "" && country != "All countries") ? (
-          <h2 className="text-h2 text-rhino font-bold">No panels listed</h2>
+          <h2 className="text-h2 text-rhino font-bold">No house tokens listed</h2>
         ) : (
           <>
             <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto">

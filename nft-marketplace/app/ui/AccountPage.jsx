@@ -177,7 +177,7 @@ export default function MyNftsPage(props) {
       ) : (
         <>
           <div className="flex items-center justify-between mb-5">
-            {!filteredItems.length ? <h2 className="text-h2 text-rhino font-bold">No panels in this account</h2> : 
+            {!filteredItems.length ? <h2 className="text-h2 text-rhino font-bold">No house tokens in this account</h2> : 
             <h2 className="text-h2 text-rhino font-bold">{pluralize('item', filteredItems.length, true)}</h2>}
 
             <div className="flex items-center">

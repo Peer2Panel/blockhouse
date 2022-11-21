@@ -49,10 +49,7 @@ export const Card = ({
           <p className="text-p text-rhino"><b>Est. income: </b> ~ ${monthlyRevenue}/month</p>
         </div>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Remaining payments: </b> {remaining_payments}</p>
-        </div>
-        <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Est. IRR: </b> <span style={{fontSize: "20px"}}>~ 14%</span></p>
+          <p className="text-p text-rhino"><b>Est. IRR: </b> <span style={{fontSize: "20px"}}>~ 8%</span></p>
         </div>
       </div>
     </div>

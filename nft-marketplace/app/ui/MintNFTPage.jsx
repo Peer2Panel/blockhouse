@@ -82,16 +82,6 @@ export default function MintNFTPage() {
 
         <InputField
           disabled={!is_admin} 
-          name='total_number_payments'
-          type='number'
-          label="Total number of payments"
-          value={formInput.total_number_payments}
-          classNameContainer="mt-4"
-          onChange={e => updateFormInput({ ...formInput, total_number_payments: e.target.value })}
-        />
-
-        <InputField
-          disabled={!is_admin} 
           textArea
           name='description'
           label="Description (optional)"

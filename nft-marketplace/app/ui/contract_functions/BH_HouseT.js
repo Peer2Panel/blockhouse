@@ -138,8 +138,12 @@ async function mint_HouseT(loggedInAddress, URI = "", bookvalue = 0, total_numbe
   }
   const signer = await getSigner(loggedInAddress);
   const contract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-  const transaction = await contract.mint_HouseT_with_info(loggedInAddress, URI, bookvalue * (10**6), total_number_payments, {
-    gasLimit: 1000000,
+  console.log(loggedInAddress)
+  console.log(URI)
+  console.log(bookvalue)
+  console.log(total_number_payments)
+  const transaction = await contract.mint_HouseT_with_info(loggedInAddress, URI, bookvalue * (10**6), 99999, {
+    gasLimit: 10000000,
   });
   await transaction.wait();
 }
