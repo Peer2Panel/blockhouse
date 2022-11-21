@@ -7,7 +7,7 @@ Built for the NEAR MetaBUILD Hackathon
 - Compound your rent revenues automatically.
 - Borrow liquidity using your NFT as collateral.
 
-*Note that we do not copy nor compete with RealT (https://realt.co/), but rather position ourself as a complementary project. We aim to be a dedicated marketplace where users can exchange and list their RealEstate tokens, and leverage the full benefits of Defi with their illiquid assets. We provide a marketplace and work with real estate partners in different countries. (Switzerland, Singapore, Korea)*
+*We do not position ourself as a competitor to RealT (https://realt.co/), but rather as a complementary project. We aim to be a dedicated marketplace where users can exchange and list their RealEstate tokens, and leverage the full benefits of Defi with their illiquid assets. We act as market makers by providing liquidity and bringing together real estate partners in different countries. (Switzerland, Singapore, Korea)*
 
 ## Contracts
 Aurora Mainnet:
