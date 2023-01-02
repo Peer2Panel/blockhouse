@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import { Card } from "./components/Card";
 import { Button } from "./components/Button";
 import { Select } from "./components/Fields/Select";
-import { SortOptions } from "./common/SortOptions";
 import { loadNFTs } from './contract_functions/BH_MarketPlace';
 import { useOutletContext } from "react-router-dom";
 import { switchToNEAR } from "./contract_functions/utils";
 import { AntSwitch } from './components/Switches.jsx';
+import T from "./Translator.jsx";
+import i18n from 'meteor/universe:i18n';
 
 export default function HomePage() {
   const [nfts, setNfts] = useState([]);
@@ -77,24 +78,32 @@ export default function HomePage() {
   const onMainnet = chainId == 1313161554;
 
   const switcher = <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}>Connect to Aurora Mainnet</a>;
+
+  const SortOptions = [
+    { label: i18n.getTranslation("Common.Oldest-Added"), value: "oldest" },
+    { label: i18n.getTranslation("Common.Newest-Added"), value: "newest" },
+    { label: i18n.getTranslation("Common.Low-to-High"), value: "price-low" },
+    { label: i18n.getTranslation("Common.High-to-Low"), value: "price-high" },
+  ];
+
   return (
     <>
       <div className="bg-rhino bg-bg-stars bg-auto bg-no-repeat bg-center-center py-24">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-big text-white font-bold">Blockhouse Marketplace</h2>
-          <p className="text-p font-light mt-5 text-white">Trade asset-backed non-fungible tokens (NFTs). Become a legal owner of real estate. Each object is owned via a Swiss corporation (AG).</p>
-          <p className="text-p font-light mt-5 text-white">Earn up to 8% APY. <i>Live on Near now!</i></p>
+          <h2 className="text-big text-white font-bold"><T>Common.marketplace-title</T></h2>
+          <p className="text-p font-light mt-5 text-white"><T>Common.marketplace-desc1</T></p>
+          <p className="text-p font-light mt-5 text-white"><T>Common.marketplace-desc2</T> <i><T>Common.marketplace-desc3</T></i></p>
           <Button
             className="mt-8 mx-auto bg-rhino"
-            ><a href="#allnfts">Get Started</a>
+            ><a href="#allnfts"><T>Common.get-started</T></a>
           </Button>
         </div>
       </div>
       <div style={{minHeight: "650px"}} className="max-w-7xl mx-auto mt-16 pt-2.5 px-2 sm:px-6 lg:px-8">
-        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onTestnet ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span>You are on chain {chainId}. Please connect to the Aurora Mainnet (1313161554). {switcher}</span> : ""}
+        {loadingState != 'loaded' ? `` : Number.isInteger(chainId) && onTestnet ? `You are on the Polygon Mumbai Testnet (80001). Please connect to the Polygon Mainnet.` : Number.isInteger(chainId) && !onMainnet ? <span><T>Common.switch-1</T> {chainId}. <T>Common.switch-2</T> {switcher}</span> : ""}
         <div>
             <div className="flex items-center justify-between mb-5">
-              <h2 id="allnfts" className="text-h2 text-rhino font-bold">All NFTs</h2>
+              <h2 id="allnfts" className="text-h2 text-rhino font-bold"><T>Common.all-nfts</T></h2>
                 <div style={{display: "flex"}}>
                   {loadingState != 'loaded' ? "Loading... " : ""}
                   <span>
@@ -102,7 +111,7 @@ export default function HomePage() {
                       <div>Selected: {selectedHouse} <a hred={"#"} style={{textDecoration: "underline", cursor: "pointer"}}onClick={()=>setSelectedHouse("")}><b>X</b></a></div> : 
                     <span style={{display: "flex", padding: "10px"}}>
                       <span style={{marginTop: "15px", marginLeft: "10px", marginRight: "5px"}}>
-                        Group by house
+                        <T>Common.group-by-house</T>
                       </span>  
                       <span style={{marginTop: "20px", marginLeft: "10px", marginRight: "10px"}}>
                         <AntSwitch onChange={(e) => {console.log(e.target.checked); setGroupedByHouse(e.target.checked)}} checked={groupedByHouse} inputProps={{ 'aria-label': 'ant design' }} />
@@ -112,7 +121,7 @@ export default function HomePage() {
                         setLoadMore(loadMoreInitialState);
                       }}>
                         {/*["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (*/}
-                        {["All countries", "Switzerland", "Germany", "Austria", "Singapore", "Korea"].map((option) => (
+                        {[i18n.getTranslation("Common.all-countries"), "Switzerland", "Germany", "Austria", "Singapore", "Korea"].map((option) => (
                           <option key={option} value={option}>{option}</option>
                         ))}
                       </Select>

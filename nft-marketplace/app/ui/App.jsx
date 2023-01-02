@@ -4,6 +4,7 @@ import { NavBar } from "./common/NavBar";
 import { Footer } from "./common/Footer";
 import Web3 from "web3";
 import { getWeb3Modal } from "./contract_functions/utils";
+import T from "./Translator.jsx";
 
 window.Buffer = require('buffer/').Buffer;
 
@@ -129,13 +130,16 @@ export const App = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <NavBar connection={connected} onConnect={onConnect} loggedInAddress={address} />
-      <div className="grow">
-        <Outlet context={[web3, connected, setConnection, onConnect, resetApp, address]} />
+    <>
+      {/*<T>Common.intro</T>*/}
+      <div className="flex flex-col min-h-screen">
+        <NavBar connection={connected} onConnect={onConnect} loggedInAddress={address} />
+        <div className="grow">
+          <Outlet context={[web3, connected, setConnection, onConnect, resetApp, address]} />
+        </div>
+        <Footer/>
       </div>
-      <Footer/>
-    </div>
+    </>
   );
   
 };

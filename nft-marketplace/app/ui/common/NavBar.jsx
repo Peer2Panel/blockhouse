@@ -3,6 +3,7 @@ import { RoutePaths } from "./RoutePaths";
 import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from "react-router-dom";
+import LanguageSelector from './LanguageSelector';
 
 export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
 
@@ -47,6 +48,9 @@ export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
                         Connect
                       </Link>
                     )}
+                    <div style={{marginLeft: "0px"}}>
+                      <LanguageSelector />
+                    </div>
                   </div>
                 </div>
               </div>

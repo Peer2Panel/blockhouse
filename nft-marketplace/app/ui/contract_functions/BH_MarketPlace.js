@@ -163,7 +163,7 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
   const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   const allInfo = await houseTContract.get_all_HouseT_info();
 
-  console.log(allInfo)
+  //console.log(allInfo)
 
   const [addresses, metadata, listed, staked, concatenated_uint] = allInfo;
   const [bookvalue, listing_prices, earned_profits,remaining_payment_list] = concatenated_uint;
