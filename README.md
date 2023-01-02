@@ -1,6 +1,7 @@
 # BLOCKHOUSE: MarketPlace for Tokenized RealEstate
 ### The Marketplace is live on Aurora: https://blockhouse.jonathanlehner.com/
-Built for the NEAR MetaBUILD Hackathon
+Built for the NEAR MetaBUILD Hackathon (https://devpost.com/software/blockhouse)  
+(All houses are fake, there wont be monthly returns for these NFTs)
 - Buy, Sell and list NFTs representing fractional real estate ownership affordably and securely on the Blockchain.
 - Get your fraction of the rent every month directly in your wallet !
 - Exit your investment easily on our marketplace.
