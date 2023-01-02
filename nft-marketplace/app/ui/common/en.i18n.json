@@ -1,0 +1,28 @@
+{
+	"_namespace": "Common",
+	"_locale": "en",
+	"userName": "User name",
+	"ok": "ok",
+	"profile": "Profile",
+	"loggedInAs": "Logged in as",
+	"signOut": "Sign Out",
+	"access": "Access",
+	"settings": "Settings",
+	"about": "About",
+	"intro":"VideoWG is the best",
+	"marketplace-title":"Blockhouse Marketplace",
+	"marketplace-desc1":"Trade asset-backed non-fungible tokens (NFTs). Become a legal owner of real estate. Each object is owned via a Swiss corporation (AG).",
+	"marketplace-desc2":"Earn up to 8% APY.",
+	"marketplace-desc3":"Live on NEAR now!",
+	"get-started":"Get Started",
+	"switch-1": "You are on chain",
+	"switch-2": "Please connect to the Aurora Mainnet (1313161554).",
+	"all-nfts": "All NFTs",
+	"group-by-house": "Group by house",
+	"all-countries": "All countries",
+	"Oldest-Added": "Oldest Added",
+    "Newest-Added": "Newest Added",
+    "Low-to-High": "Price: Low to High",
+    "High-to-Low": "Price: High to Low"
+}
+
