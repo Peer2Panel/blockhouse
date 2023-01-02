@@ -4,7 +4,6 @@ import { Card } from "./components/Card";
 import { Button } from "./components/Button";
 import { useParams, useLocation } from "react-router-dom";
 import truncateEthAddress from "truncate-eth-address";
-import { SortOptions } from "./common/SortOptions";
 import { Select } from "./components/Fields/Select";
 import { CategoryOptions } from "./common/CategoryOptions";
 import { useOutletContext } from "react-router-dom";
@@ -30,6 +29,14 @@ export default function MyNftsPage(props) {
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState('not-loaded');
   const [category, setCategory] = useState(CategoryOptions[0].value);
+
+  const SortOptions = [
+    { label: i18n.getTranslation("Common.Oldest-Added"), value: "oldest" },
+    { label: i18n.getTranslation("Common.Newest-Added"), value: "newest" },
+    { label: i18n.getTranslation("Common.Low-to-High"), value: "price-low" },
+    { label: i18n.getTranslation("Common.High-to-Low"), value: "price-high" },
+  ];
+
   const [sortBy, setSortBy] = useState(SortOptions[0].value);
   const loadMoreInitialState = 4;
   const loadMoreIncrementSize = 4;
