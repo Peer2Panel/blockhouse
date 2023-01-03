@@ -137,7 +137,7 @@ export default function HomePage() {
                   </span>
               </div>
             </div>
-        {(loadingState == 'loaded' && items.length == 0 && country != "" && country != "All countries") ? (
+        {(loadingState == 'loaded' && items.length == 0 && country != "" && country != i18n.getTranslation("Common.all-countries")) ? (
           <h2 className="text-h2 text-rhino font-bold">No house tokens listed</h2>
         ) : (
           <>
