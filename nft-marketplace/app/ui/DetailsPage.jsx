@@ -17,6 +17,11 @@ import Linkify from 'react-linkify';
 import { SecureLink } from "react-secure-link"
 import { stake_HouseT, approve_HouseT_staking, unstake_HouseT } from './contract_functions/BH_FungibleBlockhouse';
 
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 export default function DetailsPage() {
   const [nft, setNft] = useState(null);
   const [loadingState, setLoadingState] = useState('not-loaded');
@@ -125,26 +130,7 @@ export default function DetailsPage() {
                     </div>
                   )}
 
-                  {nft.description && (
-                    <>
-                      <h5 className="text-h5 text-rhino font-bold mt-12">Description</h5>
-                      <p className="text-p text-rhino font-light mt-3">
-                        <Linkify componentDecorator={(decoratedHref, decoratedText, key) => (
-                            <SecureLink href={decoratedHref} key={key}>{decoratedText}</SecureLink>
-                        )}>
-                          {nft.description}
-                        </Linkify>
-                      </p>
-                    </>
-                  )}
-                  <h5 className="text-h5 text-rhino font-bold mt-4">Properties</h5>
-                  <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Token ID: <span className="text-rhino">{nft.tokenId}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Country: <span className="text-rhino">{nft.itemCountry}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Company registration number #: <span className="text-rhino">{nft.serialnumber || ""}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Book value: $<span className="text-rhino">{nft.price}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Estimated monthly income: $<span className="text-rhino">{nft.monthly_return}</span></p>
-                  <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino"> ~ 8%</span></p>
+                  <AccessibleTabs1 nft={nft}/>
                 </div>
               </>
             ) : (
@@ -154,5 +140,94 @@ export default function DetailsPage() {
         </div>
       </div>
     </>
+  );
+}
+
+function AccessibleTabs1({nft}) {
+  const [value, setValue] = React.useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <>
+      <Box sx={{ width: '100%' }}>
+        <Tabs
+          onChange={handleChange}
+          value={value}
+          aria-label="Tabs where selection follows focus"
+          selectionFollowsFocus
+        >
+          <Tab label="Highlights" />
+          <Tab label="Financials" />
+          <Tab label="Details" />         
+          <Tab label="Blockchain" />
+        </Tabs>
+      </Box>
+      <TabPanel value={value} index={0}>
+        {nft.description && (
+          <>
+            <p className="text-p text-rhino font-light mt-3">
+              <Linkify componentDecorator={(decoratedHref, decoratedText, key) => (
+                  <SecureLink href={decoratedHref} key={key}>{decoratedText}</SecureLink>
+              )}>
+               {nft.description}
+              </Linkify>
+            </p>
+          </>
+        )}
+        <h5 className="text-h5 text-rhino font-bold mt-4">Properties</h5>
+        <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
+        <p className="text-p text-manatee font-light mt-3">Estimated value: <span className="text-rhino">${nft.price}</span> (10.12.2022)</p>
+        <p className="text-p text-manatee font-light mt-3">Monthly rent per token: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
+        <p className="text-p text-manatee font-light mt-3">Rent start: <span className="text-rhino">01.05.2023</span></p>
+        <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino"> ~ 8%</span></p>
+
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        <p className="text-p text-manatee font-light mt-3">Gross rent / year: <span className="text-rhino">CHF 52'000</span></p>
+        <p className="text-p text-manatee font-light mt-3">Gross rent / month: <span className="text-rhino">CHF 4'333</span></p>
+        <p className="text-p text-manatee font-light mt-3">Monthly costs: <span className="text-rhino">CHF 800</span></p>
+        <p className="text-p text-manatee font-light mt-3">Net rent / month: <span className="text-rhino">CHF 3'533</span></p>
+        <p className="text-p text-manatee font-light mt-3">Net rent / year: <span className="text-rhino">CHF 42'396</span></p>
+        <p className="text-p text-manatee font-light mt-3">External Financing: <span className="text-rhino">CHF 625'000</span></p>
+        <p className="text-p text-manatee font-light mt-3">Interest costs / month: <span className="text-rhino">CHF 781.25</span> (interest rate: 1.5%)</p>
+        <p className="text-p text-manatee font-light mt-3">Principal payments: <span className="text-rhino">CHF 781.25</span> (repayment rate: 1.5%)</p>
+        <p className="text-p text-manatee font-light mt-3">Expected profit / year: <span className="text-rhino">CHF 33'021</span></p>
+        <p className="text-p text-manatee font-light mt-3">Expected IRR: <span className="text-rhino">5.28%</span></p>
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <p className="text-p text-manatee font-light mt-3">Country: <span className="text-rhino">{nft.itemCountry}</span></p>
+        <p className="text-p text-manatee font-light mt-3">Address: <span className="text-rhino">{nft.name}</span></p>
+        <p className="text-p text-manatee font-light mt-3">Holding company registration number: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={"https://www.moneyhouse.ch/en/company/immotrust-schweiz-ag-13471144491"}><span className="text-rhino">CH-170.3.045.945-2</span></a></p>
+        <p className="text-p text-manatee font-light mt-3">Number of rooms: <span className="text-rhino">25</span></p>
+        <p className="text-p text-manatee font-light mt-3">Area: <span className="text-rhino">500 sqm</span></p>
+        <p className="text-p text-manatee font-light mt-3">Number of parking spots: <span className="text-rhino">8</span></p>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
+        <p className="text-p text-manatee font-light mt-3">Token ID: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E?a=${nft.tokenId}`}><span className="text-rhino">{nft.tokenId}</span></a></p>
+      </TabPanel>
+    </>
+  );
+}
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
   );
 }

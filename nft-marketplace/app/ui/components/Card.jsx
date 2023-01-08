@@ -41,27 +41,37 @@ export const Card = ({
         }}
         className="w-full" src={itemImg.replace("ipfs.infura.io", "blockhouse.infura-ipfs.io")} />
       </div>
-      <div className="rounded-b-xl bg-white p-4">
+      <div className="rounded-b-xl bg-white p-4" style={{"padding": "30px"}}>
         <div className="flex justify-between items-start">
           <p className="text-p text-rhino">{itemName} ({itemCountry})</p>
-          <p className="text-p text-manatee">HouseT #{itemId}</p>
         </div>
         {groupedByHouse ? 
           <div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>Available tokens:</b>{num_tokens > 1 ? <span> {num_tokens} tokens</span> : <span> 1 token</span>}</p>
+              <p className="text-p text-rhino"><b>Total price:</b> CHF 1'250'000.–</p>
             </div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b>{num_tokens > 1 ? <span> ${min_price} - ${max_price}</span> : <span> ${max_price}</span>}</p>
+              <p className="text-p text-rhino"><b>Availability:</b>{num_tokens > 1 ? <span> {num_tokens} / 500 tokens</span> : <span> 1 token</span>}</p>
+            </div>
+            <div className="flex justify-between items-start">
+              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Token price:"}</b>{num_tokens > 1 ? <span> ${min_price} - ${max_price}</span> : <span> ${max_price}</span>}</p>
             </div>
           </div>
         :
-          <div className="flex justify-between items-start">
-            <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Listing price:"}</b> {itemPrice} USDC</p>
+          <div>
+            <div className="flex justify-between items-start">
+              <p className="text-p text-rhino"><b>Total price:</b> CHF 1'250'000.–</p>
+            </div>
+            <div className="flex justify-between items-start">
+              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Token price:"}</b> {itemPrice} USDC</p>
+            </div>
           </div>
         }
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Est. income: </b> ~ ${monthlyRevenue}/month</p>
+          <p className="text-p text-rhino"><b>Rent per token: </b> CHF {monthlyRevenue} / month</p>
+        </div>
+        <div className="flex justify-between items-start">
+          <p className="text-p text-rhino"><b>Rent start date: </b> 01.05.2023</p>
         </div>
         <div className="flex justify-between items-start">
           <p className="text-p text-rhino"><b>Est. IRR: </b> <span style={{fontSize: "20px"}}>~ 8%</span></p>
