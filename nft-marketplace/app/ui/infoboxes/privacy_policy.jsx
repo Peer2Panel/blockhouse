@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ReactMarkdown from 'react-markdown'
+import T from "../Translator.jsx";
 
 export default function PrivacyPolicy() {
   const [open, setOpen] = useState(false);
@@ -32,7 +33,7 @@ export default function PrivacyPolicy() {
   return (
     <div>
       <span onClick={handleClickOpen}>
-        Privacy Policy
+        <T>Common.privacy_policy</T>
       </span>
       <Dialog
         open={open}

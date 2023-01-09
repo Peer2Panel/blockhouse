@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between mb-5">
               <h2 id="allnfts" className="text-h2 text-rhino font-bold"><T>Common.all-nfts</T></h2>
                 <div style={{display: "flex"}}>
-                  {loadingState != 'loaded' ? "Loading... " : ""}
+                  {loadingState != 'loaded' ? <T>Common.loading</T> : ""}
                   <span>
                     {selectedHouse ? 
                       <div>Selected: {selectedHouse} <a hred={"#"} style={{textDecoration: "underline", cursor: "pointer"}}onClick={()=>setSelectedHouse("")}><b>X</b></a></div> : 
@@ -121,7 +121,13 @@ export default function HomePage() {
                         setLoadMore(loadMoreInitialState);
                       }}>
                         {/*["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (*/}
-                        {[i18n.getTranslation("Common.all-countries"), "Switzerland", "Germany", "Austria", "Singapore", "Korea"].map((option) => (
+                        {[i18n.getTranslation("Common.all-countries"), 
+                        i18n.getTranslation("Common.Switzerland"), 
+                        i18n.getTranslation("Common.Germany"),
+                        i18n.getTranslation("Common.Austria"),
+                        i18n.getTranslation("Common.Singapore"),
+                        i18n.getTranslation("Common.Korea"),
+                        ].map((option) => (
                           <option key={option} value={option}>{option}</option>
                         ))}
                       </Select>

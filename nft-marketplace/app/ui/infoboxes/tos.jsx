@@ -6,6 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ReactMarkdown from 'react-markdown'
+import T from "../Translator.jsx";
 
 export default function TOS() {
   const [open, setOpen] = React.useState(false);
@@ -32,7 +33,7 @@ export default function TOS() {
   return (
     <div>
       <span onClick={handleClickOpen}>
-        Terms of Service
+        <T>Common.terms_of_service</T>
       </span>
       <Dialog
         open={open}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { RoutePaths } from "../common/RoutePaths";
+import T from "../Translator.jsx";
+import i18n from 'meteor/universe:i18n';
 
 import {
   marketplaceAddress
@@ -43,38 +45,38 @@ export const Card = ({
       </div>
       <div className="rounded-b-xl bg-white p-4" style={{"padding": "30px"}}>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino">{itemName} ({itemCountry})</p>
+          <p className="text-p text-rhino">{itemName} (<T>Common.Switzerland</T>)</p>
         </div>
         {groupedByHouse ? 
           <div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>Total price:</b> CHF 1'250'000.–</p>
+              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'250'000.–</p>
             </div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>Availability:</b>{num_tokens > 1 ? <span> {num_tokens} / 500 tokens</span> : <span> 1 token</span>}</p>
+              <p className="text-p text-rhino"><b><T>Common.availability</T>:</b>{num_tokens > 1 ? <span> {num_tokens} / 500 <T>Common.tokens</T></span> : <span> 1 <T>Common.token</T></span>}</p>
             </div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Token price:"}</b>{num_tokens > 1 ? <span> ${min_price} - ${max_price}</span> : <span> ${max_price}</span>}</p>
+              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? <T>Common.book_value</T> : <T>Common.token_price</T>}:</b>{num_tokens > 1 ? <span> ${min_price} - ${max_price}</span> : <span> ${max_price}</span>}</p>
             </div>
           </div>
         :
           <div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>Total price:</b> CHF 1'250'000.–</p>
+              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'250'000.–</p>
             </div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? "Book value:" : "Token price:"}</b> {itemPrice} USDC</p>
+              <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? <T>Common.book_value</T> : <T>Common.token_price</T>}:</b> {itemPrice} USDC</p>
             </div>
           </div>
         }
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Rent per token: </b> CHF {monthlyRevenue} / month</p>
+          <p className="text-p text-rhino"><b><T>Common.rent_per_token</T>: </b> CHF {monthlyRevenue} / <T>Common.month</T></p>
         </div>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Rent start date: </b> 01.05.2023</p>
+          <p className="text-p text-rhino"><b><T>Common.rent_start_date</T>: </b> 01.05.2023</p>
         </div>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b>Est. IRR: </b> <span style={{fontSize: "20px"}}>~ 8%</span></p>
+          <p className="text-p text-rhino"><b><T>Common.est_irr</T>: </b> <span style={{fontSize: "20px"}}> 5.28%</span></p>
         </div>
       </div>
     </div>

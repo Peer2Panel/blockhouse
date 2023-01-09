@@ -23,5 +23,24 @@
 	"Oldest-Added": "Älteste zuerst",
     "Newest-Added": "Neueste zuerst",
     "Low-to-High": "Preis: aufsteigend",
-    "High-to-Low": "Preis: absteigend"
-	}
+    "High-to-Low": "Preis: absteigend",
+	"Switzerland": "Schweiz",
+	"Germany": "Deutschland",
+	"Austria": "Österreich",
+	"Singapore": "Singapur",
+	"Korea": "Südkorea",
+	"privacy_policy": "Datenschutz",
+	"terms_of_service": "AGB",
+	"total_price": "Kaufpreis",
+	"availability": "Verfügbarkeit",
+	"token_price": "Tokenpreis",
+	"rent_per_token": "Miete pro Token",
+	"rent_start_date": "Mietbeginn",
+	"est_irr": "Geschätzte Rendite",
+	"month": "Monat",
+	"token": "Token",
+	"tokens": "Tokens",
+	"loading": "Wird geladen...",
+	"Explore": "Entdecken",
+	"Create": "Erstellen"
+}

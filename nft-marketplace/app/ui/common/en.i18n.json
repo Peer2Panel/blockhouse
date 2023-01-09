@@ -23,6 +23,25 @@
 	"Oldest-Added": "Oldest Added",
     "Newest-Added": "Newest Added",
     "Low-to-High": "Price: Low to High",
-    "High-to-Low": "Price: High to Low"
+    "High-to-Low": "Price: High to Low",
+	"Switzerland": "Switzerland",
+	"Germany": "Germany",
+	"Austria": "Austria",
+	"Singapore": "Singapore",
+	"Korea": "South Korea",
+	"privacy_policy": "Privacy Policy",
+	"terms_of_service": "Terms of Service",
+	"total_price": "Total price",
+	"availability": "availability",
+	"token_price": "token price",
+	"rent_per_token": "rent per token",
+	"rent_start_date": "rent start date",
+	"est_irr": "Estimated IRR",
+	"month": "month",
+	"token": "token",
+	"tokens": "tokens",
+	"loading": "Loading...",
+	"Explore": "Explore",
+	"Create": "Create"
 }
 

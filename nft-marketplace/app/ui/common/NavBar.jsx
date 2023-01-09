@@ -4,12 +4,13 @@ import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { Link } from "react-router-dom";
 import LanguageSelector from './LanguageSelector';
+import i18n from 'meteor/universe:i18n';
 
 export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
 
   let navigation = [
-    { name: 'Explore', href: RoutePaths.ROOT},
-    { name: 'Create', href: RoutePaths.MINT_NFT },
+    { name: i18n.getTranslation("Common.Explore"), href: RoutePaths.ROOT},
+    { name: i18n.getTranslation("Common.Create"), href: RoutePaths.MINT_NFT },
   ];
 
   const admin = "0xd7dc5f52b0f586c5e1676cd0c9eb9db286341e74";
