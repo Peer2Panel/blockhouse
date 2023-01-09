@@ -101,6 +101,11 @@ export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
                   Connect
                 </Disclosure.Button>
               )}
+              <Disclosure.Button>
+                <div style={{marginLeft: "0px"}}>
+                  <LanguageSelector />
+                </div>
+              </Disclosure.Button>
             </div>
           </Disclosure.Panel>
         </>
