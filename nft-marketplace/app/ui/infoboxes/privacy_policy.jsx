@@ -7,6 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import ReactMarkdown from 'react-markdown'
 import T from "../Translator.jsx";
+import i18n from 'meteor/universe:i18n';
 
 export default function PrivacyPolicy() {
   const [open, setOpen] = useState(false);
@@ -15,7 +16,17 @@ export default function PrivacyPolicy() {
   useEffect(() => {
     // declare the data fetching function
     const fetchData = async () => {
-      const res = await (await fetch("/policy.md")).text();
+      const lang = i18n.getLocale();
+      let res;
+      if(lang == "en"){
+        res = await (await fetch("/policy.md")).text();
+      }
+      else if(lang == "de"){
+        res = await (await fetch("/datenschutz.md")).text();
+      }
+      else {
+        res = "";
+      }
       setPolicy(res);
     }
   
@@ -42,7 +53,7 @@ export default function PrivacyPolicy() {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Privacy Policy"}
+          <T>Common.privacy_policy</T>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
