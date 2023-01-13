@@ -45,7 +45,7 @@ export const Card = ({
       </div>
       <div className="rounded-b-xl bg-white p-4" style={{"padding": "30px"}}>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino">{itemName} (<T>Common.Switzerland</T>)</p>
+          <p className="text-p text-rhino">{itemName} (<T>Common.Switzerland</T>) [#{itemId}]</p>
         </div>
         {groupedByHouse ? 
           <div>
