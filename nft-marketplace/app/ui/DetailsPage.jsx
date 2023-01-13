@@ -181,6 +181,7 @@ function AccessibleTabs1({nft}) {
         <h5 className="text-h5 text-rhino font-bold mt-4">Properties</h5>
         <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
         <p className="text-p text-manatee font-light mt-3">Monthly rent per token: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
+        <p className="text-p text-manatee font-light mt-3">Total number of tokens: <span className="text-rhino">500</span></p>
         <p className="text-p text-manatee font-light mt-3">Rent start: <span className="text-rhino">01.05.2023</span></p>
         <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino">5.28%</span></p>
 
@@ -205,7 +206,7 @@ function AccessibleTabs1({nft}) {
         <p className="text-p text-manatee font-light mt-3">Number of rooms: <span className="text-rhino">25</span></p>
         <p className="text-p text-manatee font-light mt-3">Area: <span className="text-rhino">500 sqm</span></p>
         <p className="text-p text-manatee font-light mt-3">Number of parking spots: <span className="text-rhino">8</span></p>
-        <p className="text-p text-manatee font-light mt-3">Estimated value: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
+        <p className="text-p text-manatee font-light mt-3">Estimated value for tax purposes: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
       </TabPanel>
       <TabPanel value={value} index={3}>
         <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
