@@ -53,7 +53,7 @@ export default function DetailsPage() {
                 </div>
 
                 <div className="col-span-2">
-                  <h2 className="text-h2 text-rhino font-bold">{nft.name}</h2>
+                  <h2 className="text-h2 text-rhino font-bold">{nft.name} [#{nft.tokenId}]</h2>
                   <p className="text-p text-manatee mt-2 mb-8">Owned by <Link className="text-dodger" to={`${RoutePaths.ACCOUNT}/${nft.owner}`}>{truncateEthAddress(nft.owner)} {is_admin ? "(Blockhouse Admin)": ""}</Link> 
                     {nft.owner && nft.owner.toLowerCase() == addresses.BH_MarketPlace_address.toLowerCase() ? " (Blockhouse marketplace)" : ""}
                     {nft.owner && nft.owner.toLowerCase() == addresses.BH_FungibleBlockhouse_address.toLowerCase() ? " (Blockhouse staking)" : ""}
@@ -205,7 +205,7 @@ function AccessibleTabs1({nft}) {
         <p className="text-p text-manatee font-light mt-3">Number of rooms: <span className="text-rhino">25</span></p>
         <p className="text-p text-manatee font-light mt-3">Area: <span className="text-rhino">500 sqm</span></p>
         <p className="text-p text-manatee font-light mt-3">Number of parking spots: <span className="text-rhino">8</span></p>
-        <p className="text-p text-manatee font-light mt-3">Estimated value: <span className="text-rhino">${nft.price}</span> (10.12.2022)</p>
+        <p className="text-p text-manatee font-light mt-3">Estimated value: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
       </TabPanel>
       <TabPanel value={value} index={3}>
         <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
