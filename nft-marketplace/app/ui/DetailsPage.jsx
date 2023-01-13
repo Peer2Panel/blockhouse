@@ -176,6 +176,8 @@ function AccessibleTabs1({nft}) {
             </p>
           </>
         )}
+        <a href={"/documents/Dokumentation-Däderizstrasse 30 - 2540 Grenchen.pdf"} download><Button className="mt-4" text="Download information sheet" type="primary"/></a> (in German)
+
         <h5 className="text-h5 text-rhino font-bold mt-4">Properties</h5>
         <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
         <p className="text-p text-manatee font-light mt-3">Monthly rent per token: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
