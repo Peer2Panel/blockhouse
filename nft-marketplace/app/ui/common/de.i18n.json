@@ -65,5 +65,32 @@
 	"verified-info": "Nur Konten auf der Whitelist können Einnahmen erhalten oder HouseT einsetzen. Die offizielle Eigentumsübertragung des Anteils ist erst abgeschlossen, wenn der neue Eigentümer verifiziert ist. Für das Whitelisting senden Sie bitte ein Foto Ihres gültigen Reisepasses an jonathan.lehner@blockhouse.com.",
 	"no-tokens": "Keine Haustokens auf diesem Konto",
 	"psm": "Preisstabilitätsmechanismus",
-	"psm-info": "Hier können Sie Fungible Blockhouse FBH und USDC tauschen, solange Reserven im Smart Contract vorhanden sind. Sie müssen zuerst den USDC-Betrag genehmigen."
+	"psm-info": "Hier können Sie Fungible Blockhouse FBH und USDC tauschen, solange Reserven im Smart Contract vorhanden sind. Sie müssen zuerst den USDC-Betrag genehmigen.",
+	"listing-price": "Verkaufspreis",
+	"listing-info": "Token, die Sie besitzen, können zum Verkauf angeboten werden (1 % Provision).",
+	"staking-info": "Oder sie können abgesteckt werden, um die Fungible Blockhouse Stablecoin zu leihen. Der Zinssatz beträgt 3 % p.a. mit 85 % Besicherungsquote.",
+	"repayment-info": "Zahlen Sie Ihr Darlehen mit Zinsen zurück, um Ihr HouseT abzulösen.",
+	"owned-by": "Gehört",
+	"in-German": "auf Deutsch",
+	"info-sheet": "Informationsblatt herunterladen",
+	"interest-rate": "Zinssatz",
+	"repayment-rate": "Rückzahlungsrate",
+	"nft-description": "Vollvermietetes Mehrfamilienhaus als attraktive Anlageliegenschaft in Grenchen. Insgesamt erstreckt sich das Anwesen über eine Grundstücksfläche von 748 m2. Die Immobilie wurde 2015 renoviert und befindet sich in einem guten Zustand.",
+	"Financials": "Finanzielles",
+	"Properties": "Eigenschaften",
+	"Seller": "Verkäufer",
+	"Owner": "Besitzer",
+	"Monthly rent per token": "Monatliche Miete pro Token",
+	"Total number of tokens": "Anzahl Tokens",
+	"Total purchase price": "Gesamter Kaufpreis",
+	"Gross rent": "Bruttomiete",
+	"year": "Jahr",
+	"Monthly costs": "Monatliche Kosten",
+	"Net rent": "Nettomiete",
+	"External Financing": "Fremdfinanzierung",
+	"Interest costs": "Zinskosten",
+	"Principal payments": "Rückzahlung",
+	"Expected profit": "Erwarteter Gewinn"
+
+
 }

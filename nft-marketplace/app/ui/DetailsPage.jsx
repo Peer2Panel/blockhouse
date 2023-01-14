@@ -57,7 +57,7 @@ export default function DetailsPage() {
 
                 <div className="col-span-2">
                   <h2 className="text-h2 text-rhino font-bold">{nft.name} [#{nft.tokenId}]</h2>
-                  <p className="text-p text-manatee mt-2 mb-8">Owned by <Link className="text-dodger" to={`${RoutePaths.ACCOUNT}/${nft.owner}`}>{truncateEthAddress(nft.owner)} {is_admin ? "(Blockhouse Admin)": ""}</Link> 
+                  <p className="text-p text-manatee mt-2 mb-8"><T>Common.owned-by</T> <Link className="text-dodger" to={`${RoutePaths.ACCOUNT}/${nft.owner}`}>{truncateEthAddress(nft.owner)} {is_admin ? "(Blockhouse Admin)": ""}</Link> 
                     {nft.owner && nft.owner.toLowerCase() == addresses.BH_MarketPlace_address.toLowerCase() ? " (Blockhouse marketplace)" : ""}
                     {nft.owner && nft.owner.toLowerCase() == addresses.BH_FungibleBlockhouse_address.toLowerCase() ? " (Blockhouse staking)" : ""}
                   </p>
@@ -65,7 +65,7 @@ export default function DetailsPage() {
                   {(connected && nft.listed && nft.seller.toLowerCase() === loggedInAddress.toLowerCase()) && (
                     <>
                       <div className="flex items-baseline">
-                        <h2 className="text-h2 text-rhino font-bold mr-2">Listing price: {nft.listing_price} USDC</h2>
+                        <h2 className="text-h2 text-rhino font-bold mr-2"><T>Common.listing-price</T>: {nft.listing_price} USDC</h2>
                       </div>
 
                       <Button className="mt-4" text="Remove Listing" type="danger" onClick={() => { unlist_HouseT(loggedInAddress, nft.tokenId) }} />
@@ -79,7 +79,7 @@ export default function DetailsPage() {
                   {(!connected || nft.listed && nft.seller.toLowerCase() !== loggedInAddress.toLowerCase()) && (
                     <>
                       <div className="flex items-baseline">
-                        <h2 className="text-h2 text-rhino font-bold mr-2">Listing price: {nft.listing_price} USDC</h2>
+                        <h2 className="text-h2 text-rhino font-bold mr-2"><T>Common.listing-price</T>: {nft.listing_price} USDC</h2>
                       </div>
 
                       <Button disabled={approving} className="mt-4" text="Buy HouseT" onClick={() => { buy_HouseT(loggedInAddress, nft.tokenId, setApprove) }} />
@@ -92,7 +92,7 @@ export default function DetailsPage() {
                   {!nft.listed && !nft.staked && nft.owner.toLowerCase() === loggedInAddress.toLowerCase() && !sellItem && (
                     <>
                       <Button disabled={approving} className="mb-2" text="List HouseT" type="secondary" onClick={() => { setSellItem(true) }} />
-                      <p className="text-p text-manatee font-light">Tokens you own can be listed for sale (1% commission).</p>
+                      <p className="text-p text-manatee font-light"><T>Common.listing-info</T></p>
                     </>
                   )}
 
@@ -104,14 +104,14 @@ export default function DetailsPage() {
                       {" "}{ approvingStaking ?                       
                         <Button className="mt-4" text="Approve HouseT staking" onClick={() => { approve_HouseT_staking(loggedInAddress, nft.tokenId, setApproveStaking) }} />
                         : ""}
-                      <p className="text-p text-manatee font-light">Or they can be staked to borrow the Fungible Blockhouse stablecoin. The interest rate is 3% p.a. with 85% collateralization ratio.</p>
+                      <p className="text-p text-manatee font-light"><T>Common.staking-info</T></p>
                     </>
                   )}
 
                   {nft.staked && nft.owner.toLowerCase() === loggedInAddress.toLowerCase() && !sellItem && (
                     <>
                       <Button className="mb-2" text="Unstake HouseT" type="danger" onClick={() => { unstake_HouseT(loggedInAddress, nft.tokenId) }} />
-                      <p className="text-p text-manatee font-light">Repay your loan with interest to unstake your HouseT.</p>
+                      <p className="text-p text-manatee font-light"><T>Common.repayment-info</T></p>
                     </>
                   )}
 
@@ -162,7 +162,7 @@ function AccessibleTabs1({nft}) {
           selectionFollowsFocus
         >
           <Tab label="Highlights" />
-          <Tab label="Financials" />
+          <Tab label={i18n.getTranslation("Common.Financials")} />
           <Tab label="Details" />         
           <Tab label="Blockchain" />
         </Tabs>
@@ -174,42 +174,43 @@ function AccessibleTabs1({nft}) {
               <Linkify componentDecorator={(decoratedHref, decoratedText, key) => (
                   <SecureLink href={decoratedHref} key={key}>{decoratedText}</SecureLink>
               )}>
-               {nft.description}
+                <T>Common.nft-description</T>
+               {/*nft.description"*/}
               </Linkify>
             </p>
           </>
         )}
-        <a href={"/documents/Dokumentation-Däderizstrasse 30 - 2540 Grenchen.pdf"} download><Button className="mt-4" text="Download information sheet" type="primary"/></a> (in German)
+        <a href={"/documents/Dokumentation-Däderizstrasse 30 - 2540 Grenchen.pdf"} download><Button className="mt-4" text={i18n.getTranslation("Common.info-sheet")} type="primary"/></a> (<T>Common.in-German</T>)
 
-        <h5 className="text-h5 text-rhino font-bold mt-4">Properties</h5>
-        <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? "Seller" : "Owner"}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
-        <p className="text-p text-manatee font-light mt-3">Monthly rent per token: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
-        <p className="text-p text-manatee font-light mt-3">Total number of tokens: <span className="text-rhino">500</span></p>
-        <p className="text-p text-manatee font-light mt-3">Rent start: <span className="text-rhino">01.05.2023</span></p>
-        <p className="text-p text-manatee font-light mt-3">Estimated IRR: <span className="text-rhino">5.28%</span></p>
+        <h5 className="text-h5 text-rhino font-bold mt-4"><T>Common.Properties</T></h5>
+        <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? <T>Common.Seller</T> : <T>Common.Owner</T>}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Monthly rent per token</T>: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Total number of tokens</T>: <span className="text-rhino">500</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.rent_start_date</T>: <span className="text-rhino">01.05.2023</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">5.28%</span></p>
 
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <p className="text-p text-manatee font-light mt-3">Total purchase price: <span className="text-rhino">CHF 1'250'000</span></p>
-        <p className="text-p text-manatee font-light mt-3">Gross rent / year: <span className="text-rhino">CHF 52'000</span></p>
-        <p className="text-p text-manatee font-light mt-3">Gross rent / month: <span className="text-rhino">CHF 4'333</span></p>
-        <p className="text-p text-manatee font-light mt-3">Monthly costs: <span className="text-rhino">CHF 800</span></p>
-        <p className="text-p text-manatee font-light mt-3">Net rent / month: <span className="text-rhino">CHF 3'533</span></p>
-        <p className="text-p text-manatee font-light mt-3">Net rent / year: <span className="text-rhino">CHF 42'396</span></p>
-        <p className="text-p text-manatee font-light mt-3">External Financing: <span className="text-rhino">CHF 625'000</span></p>
-        <p className="text-p text-manatee font-light mt-3">Interest costs / month: <span className="text-rhino">CHF 781.25</span> (interest rate: 1.5%)</p>
-        <p className="text-p text-manatee font-light mt-3">Principal payments: <span className="text-rhino">CHF 781.25</span> (repayment rate: 1.5%)</p>
-        <p className="text-p text-manatee font-light mt-3">Expected profit / year: <span className="text-rhino">CHF 33'021</span></p>
-        <p className="text-p text-manatee font-light mt-3">Expected IRR: <span className="text-rhino">5.28%</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Total purchase price</T>: <span className="text-rhino">CHF 1'250'000</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 52'000</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 4'333</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Monthly costs</T>: <span className="text-rhino">CHF 800</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 3'533</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 42'396</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.External Financing</T>: <span className="text-rhino">CHF 625'000</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Interest costs</T> / <T>Common.month</T>: <span className="text-rhino">CHF 781.25</span> (<T>Common.interest-rate</T>: 1.5%)</p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Principal payments</T>: <span className="text-rhino">CHF 781.25</span> (<T>Common.repayment-rate</T>: 1.5%)</p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Expected profit</T> / <T>Common.year</T>: <span className="text-rhino">CHF 33'021</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">5.28%</span></p>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <p className="text-p text-manatee font-light mt-3">Country: <span className="text-rhino">{nft.itemCountry}</span></p>
-        <p className="text-p text-manatee font-light mt-3">Address: <span className="text-rhino">{nft.name}</span></p>
-        <p className="text-p text-manatee font-light mt-3">Holding company registration number: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={"https://www.moneyhouse.ch/en/company/immotrust-schweiz-ag-13471144491"}><span className="text-rhino">CH-170.3.045.945-2</span></a></p>
-        <p className="text-p text-manatee font-light mt-3">Number of rooms: <span className="text-rhino">25</span></p>
-        <p className="text-p text-manatee font-light mt-3">Area: <span className="text-rhino">500 sqm</span></p>
-        <p className="text-p text-manatee font-light mt-3">Number of parking spots: <span className="text-rhino">8</span></p>
-        <p className="text-p text-manatee font-light mt-3">Estimated value for tax purposes: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Country</T>: <span className="text-rhino">{nft.itemCountry}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Address</T>: <span className="text-rhino">{nft.name}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Holding company registration number</T>: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={"https://www.moneyhouse.ch/en/company/immotrust-schweiz-ag-13471144491"}><span className="text-rhino">CH-170.3.045.945-2</span></a></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of rooms</T>: <span className="text-rhino">25</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Area</T>: <span className="text-rhino">500 sqm</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of parking spots</T>: <span className="text-rhino">8</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Estimated value for tax purposes</T>: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
       </TabPanel>
       <TabPanel value={value} index={3}>
         <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>

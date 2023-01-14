@@ -46,7 +46,7 @@ export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
                       </Link>
                     ) : (
                       <Link className="px-3 py-2 text-p font-medium" to={"#"} onClick={()=>onConnect()}>
-                        Connect
+                        {i18n.getTranslation("Common.Connect")}
                       </Link>
                     )}
                     <div style={{marginLeft: "0px"}}>
@@ -98,7 +98,7 @@ export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
                   onClick={()=>onConnect()}
                   className="block px-3 py-2 text-p font-medium"
                 >
-                  Connect
+                  {i18n.getTranslation("Common.Connect")}
                 </Disclosure.Button>
               )}
               <Disclosure.Button>

@@ -65,6 +65,32 @@
 	"verified-info": "Only whitelisted accounts can receive revenues or stake HouseT. The official ownership transfer of the stake is only complete once the new owner is verified. For whitelisting please send a photo of your valid passport to jonathan.lehner@blockhouse.com.",
 	"no-tokens": "No house tokens in this account",
 	"psm": "Price Stability Mechanism",
-	"psm-info": "Here you can exchange Fungible Blockhouse FBH and USDC, as long as there are reserves in the smart contract. You need to approve the amount of USDC first."
+	"psm-info": "Here you can exchange Fungible Blockhouse FBH and USDC, as long as there are reserves in the smart contract. You need to approve the amount of USDC first.",
+	"listing-price": "Listing price",
+	"listing-info": "Tokens you own can be listed for sale (1% commission).",
+	"staking-info": "Or they can be staked to borrow the Fungible Blockhouse stablecoin. The interest rate is 3% p.a. with 85% collateralization ratio.",
+	"repayment-info": "Repay your loan with interest to unstake your HouseT.",
+	"owned-by": "Owned by",
+	"in-German": "in German",
+	"info-sheet": "Download information sheet",
+	"interest-rate": "interest rate",
+	"repayment-rate": "repayment rate",
+	"nft-description": "Fully rented apartment building as an attractive investment property in Grenchen. Overall, the property extends over a plot area of ​​748 m2. the property was renovated in 2015 and is in good condition.",
+	"Financials": "Financials",
+	"Properties": "Properties",
+	"Seller": "Seller",
+	"Owner": "Owner",
+	"Monthly rent per token": "Monthly rent per token",
+	"Total number of tokens": "Total number of tokens",
+	"Total purchase price": "Total purchase price",
+	"Gross rent": "Gross rent",
+	"year": "year",
+	"Monthly costs": "Monthly costs",
+	"Net rent": "Net rent",
+	"External Financing": "External Financing",
+	"Interest costs": "Interest costs",
+	"Principal payments": "Principal payments",
+	"Expected profit": "Expected profit"
+	
 }
 
