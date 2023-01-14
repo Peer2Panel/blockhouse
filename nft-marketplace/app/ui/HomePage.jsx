@@ -77,7 +77,7 @@ export default function HomePage() {
   const onTestnet = chainId == 1313161556;
   const onMainnet = chainId == 1313161554;
 
-  const switcher = <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}>Connect to Aurora Mainnet</a>;
+  const switcher = <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><T>Common.Connect-to-mainnet</T></a>;
 
   const SortOptions = [
     { label: i18n.getTranslation("Common.Oldest-Added"), value: "oldest" },
@@ -170,7 +170,7 @@ export default function HomePage() {
               <div className="mt-14 text-center">
                 <Button
                   className="bg-dodger"
-                  text="Load More"
+                  text={i18n.getTranslation("Common.load-more")}
                   onClick={() => {
                     setLoadMore(loadMore + loadMoreIncrementSize);
                   }}

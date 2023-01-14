@@ -7,6 +7,7 @@ import Switch, { SwitchProps } from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { switchToNEAR } from "../contract_functions/utils";
+import T from "../Translator.jsx";
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 62,
@@ -203,14 +204,14 @@ export default function CustomizedSwitches() {
         {/*<Typography>Testnet (Mumbai)</Typography>
         <AntSwitch disabled name="network" onChange={onChange} defaultChecked={localStorage.getItem("network") == 'true'} inputProps={{ 'aria-label': 'ant design' }} />
         */}
-        <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><Typography>Connect to Aurora Mainnet</Typography></a>
+        <a onClick={()=> switchToNEAR("0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607", 1313161554)} href="#" style={{textDecoration: "underline"}}><Typography><T>Common.Connect-to-mainnet</T></Typography></a>
       </Stack>
-      <Stack direction="row" spacing={1} alignItems="center">
+      {/*<Stack direction="row" spacing={1} alignItems="center">
         <Typography>Normal transactions</Typography>
         <AntSwitch disabled name="gasless" onChange={onChange} defaultChecked={localStorage.getItem("gasless") == 'true'} inputProps={{ 'aria-label': 'ant design' }} />
         <Typography>Gasless</Typography>
       </Stack>
-      <i>Gasless transactions will be available soon.</i>
+      <i>Gasless transactions will be available soon.</i>*/}
     </FormGroup>
   );
 }

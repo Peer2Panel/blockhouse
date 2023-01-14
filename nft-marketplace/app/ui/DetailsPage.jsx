@@ -22,6 +22,9 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import T from "./Translator.jsx";
+import i18n from 'meteor/universe:i18n';
+
 export default function DetailsPage() {
   const [nft, setNft] = useState(null);
   const [loadingState, setLoadingState] = useState('not-loaded');

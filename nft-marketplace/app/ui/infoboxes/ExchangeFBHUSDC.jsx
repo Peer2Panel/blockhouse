@@ -8,6 +8,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Amount_in_contract, exchange_FBH_TO_USDC, approve_USDC, exchange_USDC_TO_FBH } from "../contract_functions/BH_FungibleBlockhouse";
 import { useOutletContext } from "react-router-dom";
+import T from "../Translator.jsx";
 
 export default function ExchangeFBHUSDC(children) {
   const [open, setOpen] = React.useState(false);
@@ -37,7 +38,7 @@ export default function ExchangeFBHUSDC(children) {
   return (
     <span>
       <span onClick={handleClickOpen}>
-        (exchange 1:1 with PSM)
+        (<T>Common.exchange-PSM</T>)
       </span>
       <Dialog
         open={open}
@@ -46,11 +47,11 @@ export default function ExchangeFBHUSDC(children) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Price Stability Mechanism"}
+          <T>Common.psm</T>
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Here you can exchange Fungible Blockhouse FBH and USDC, as long as there are reserves in the smart contract. You need to approve the amount of USDC first.
+            <T>Common.psm-info</T>
             <div style={{maxWidth: "48rem"}} className=" mx-auto mt-14 mb-2.5 px-2 sm:px-0 ">
               <div style={{padding: "20px"}}>
                 <label htmlFor="file" className="flex relative">

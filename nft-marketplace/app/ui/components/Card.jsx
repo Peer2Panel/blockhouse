@@ -33,7 +33,7 @@ export const Card = ({
     <div className={`cursor-pointer ${className}`} onClick={() => num_tokens == 0 ? window.open(`${RoutePaths.DETAILS}/${itemId}`, target="_blank") : setSelectedHouse(itemName)}>
       <div className="relative rounded-t-lg max-h-80 flex items-center overflow-hidden">
         {badge && (
-          <p className={`absolute top-0 left-0 text-small text-white font-medium uppercase rounded-br-lg py-1 px-2 ${badgeBackgroundColor}`}>{badge}</p>
+          <p className={`absolute top-0 left-0 text-small text-white font-medium uppercase rounded-br-lg py-1 px-2 ${badgeBackgroundColor}`}>{i18n.getTranslation(`Common.${badge}`)}</p>
         )}
         <img 
         style={{

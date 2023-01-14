@@ -25,6 +25,10 @@ if(true){
   addresses = addresses_mainnet;
 }
 
+import T from "./Translator.jsx";
+import i18n from 'meteor/universe:i18n';
+
+
 export default function MyNftsPage(props) {
   const [nfts, setNfts] = useState([]);
   const [loadingState, setLoadingState] = useState('not-loaded');
@@ -136,18 +140,18 @@ export default function MyNftsPage(props) {
       <h1 className="text-h1 text-rhino text-center font-bold mb-7 mt-4">{truncateEthAddress(address+"")} {address == addresses.BH_MarketPlace_address.toLowerCase() ? <div>(Blockhouse smart contract)</div> : ""}</h1>
       { loggedInAddress && loggedInAddress.toLowerCase() == address.toLowerCase() ?
         <span>{ !connection ?
-          <div><Button onClick={()=>onConnect()}>Connect</Button></div>:
-          <div>My own account: <a href="#" onClick={()=>resetApp()} style={{textDecoration: "underline", margin: "20px 0px"}}>Disconnect</a></div>
+          <div><Button onClick={()=>onConnect()}><T>Common.Connect</T></Button></div>:
+          <div><T>Common.my-own-account</T>: <a href="#" onClick={()=>resetApp()} style={{textDecoration: "underline", margin: "20px 0px"}}><T>Common.Disconnect</T></a></div>
         }</span>
         : ""
       }
       <div>
-        Verification status: {verified == "-" ? "-" : verified ? 
-          <span style={{color: "green"}}>verified</span> : 
+        <T>Common.verification-status</T>: {verified == "-" ? "-" : verified ? 
+          <span style={{color: "green"}}><T>Common.verified</T></span> : 
           <span>
-            <span style={{color: "red"}}>not verified</span>*
+            <span style={{color: "red"}}><T>Common.not-verified</T></span>*
             <p style={{maxWidth: "500px", fontSize: "9px"}}>
-              <i>Only whitelisted accounts can receive revenues or stake HouseT. The official ownership transfer of the solar panel is only complete once the new owner is verified. For whitelisting please send a photo of your valid passport to jonathan.lehner@Blockhouse.com.</i>
+              <i><T>Common.verified-info</T></i>
             </p>
           </span>}
       </div>
@@ -157,16 +161,16 @@ export default function MyNftsPage(props) {
         </div> : ""
       }
       <div>
-        Total earned so far: ${total_earned} USDC
+        <T>Common.earned-so-far</T>: ${total_earned} USDC
       </div>
       <div>
-        Monthly income: ${monthly_income} USDC
+        <T>Common.monthly-income</T>: ${monthly_income} USDC
       </div>
       <div>
-        Total borrowed: ${total_staked} FBH
+        <T>Common.total-borrowed</T>: ${total_staked} FBH
       </div>
       <div>
-        Current Fungible Blockhouse balance: ${FSBalance} <a onClick={() => addFungibleBlockhouseToWallet(loggedInAddress)} style={{color: "blue"}} href="#">(add to wallet)</a> / <a style={{color: "blue"}} href="#"><ExchangeFBHUSDC amount={amount}/></a>
+        <T>Common.FB-balance</T>: ${FSBalance} <a onClick={() => addFungibleBlockhouseToWallet(loggedInAddress)} style={{color: "blue"}} href="#">(<T>Common.add-to-wallet</T>)</a> / <a style={{color: "blue"}} href="#"><ExchangeFBHUSDC amount={amount}/></a>
       </div>
       {is_admin ?
         <div>
@@ -184,8 +188,8 @@ export default function MyNftsPage(props) {
       ) : (
         <>
           <div className="flex items-center justify-between mb-5">
-            {!filteredItems.length ? <h2 className="text-h2 text-rhino font-bold">No house tokens in this account</h2> : 
-            <h2 className="text-h2 text-rhino font-bold">{pluralize('item', filteredItems.length, true)}</h2>}
+            {!filteredItems.length ? <h2 className="text-h2 text-rhino font-bold"><T>Common.no-tokens</T></h2> : 
+            <h2 className="text-h2 text-rhino font-bold">{pluralize(i18n.getTranslation("Common.item"), filteredItems.length, true)}</h2>}
 
             <div className="flex items-center">
               <Select className="mr-4" onChange={e => {
@@ -232,7 +236,7 @@ export default function MyNftsPage(props) {
             <div className="mt-14 text-center">
               <Button
                 className="bg-dodger"
-                text="Load More"
+                text={i18n.getTranslation("Common.load-more")}
                 onClick={() => {
                   setLoadMore(loadMore + loadMoreIncrementSize);
                 }}
