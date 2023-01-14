@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Close</Button>
+          <Button onClick={handleClose}><T>Common.Close</T></Button>
         </DialogActions>
       </Dialog>
     </div>

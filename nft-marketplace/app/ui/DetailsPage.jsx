@@ -68,7 +68,7 @@ export default function DetailsPage() {
                         <h2 className="text-h2 text-rhino font-bold mr-2"><T>Common.listing-price</T>: {nft.listing_price} USDC</h2>
                       </div>
 
-                      <Button className="mt-4" text="Remove Listing" type="danger" onClick={() => { unlist_HouseT(loggedInAddress, nft.tokenId) }} />
+                      <Button className="mt-4" text={i18n.getTranslation("Common.Remove Listing")} type="danger" onClick={() => { unlist_HouseT(loggedInAddress, nft.tokenId) }} />
                       <br /><br />
                       <p className="text-p text-manatee font-light">This will remove the item from the general listing.</p>
                       <p className="text-p text-manatee font-light">Other people will no longer be able to buy it.</p>
@@ -82,9 +82,9 @@ export default function DetailsPage() {
                         <h2 className="text-h2 text-rhino font-bold mr-2"><T>Common.listing-price</T>: {nft.listing_price} USDC</h2>
                       </div>
 
-                      <Button disabled={approving} className="mt-4" text="Buy HouseT" onClick={() => { buy_HouseT(loggedInAddress, nft.tokenId, setApprove) }} />
+                      <Button disabled={approving} className="mt-4" text={i18n.getTranslation("Common.Buy HouseT")} onClick={() => { buy_HouseT(loggedInAddress, nft.tokenId, setApprove) }} />
                       {" "}{ approving ?                       
-                        <Button className="mt-4" text="Approve USDC spending" onClick={() => { approve_USDC(loggedInAddress, nft.tokenId, setApprove) }} />
+                        <Button className="mt-4" text={i18n.getTranslation("Common.Approve USDC spending")} onClick={() => { approve_USDC(loggedInAddress, nft.tokenId, setApprove) }} />
                         : ""}
                     </>
                   )}
@@ -204,7 +204,7 @@ function AccessibleTabs1({nft}) {
         <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">5.28%</span></p>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Country</T>: <span className="text-rhino">{nft.itemCountry}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Country</T>: <span className="text-rhino">{i18n.getTranslation("Common."+nft.itemCountry)}</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Address</T>: <span className="text-rhino">{nft.name}</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Holding company registration number</T>: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={"https://www.moneyhouse.ch/en/company/immotrust-schweiz-ag-13471144491"}><span className="text-rhino">CH-170.3.045.945-2</span></a></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Number of rooms</T>: <span className="text-rhino">25</span></p>

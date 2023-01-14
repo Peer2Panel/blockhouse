@@ -90,7 +90,16 @@
 	"External Financing": "Fremdfinanzierung",
 	"Interest costs": "Zinskosten",
 	"Principal payments": "Rückzahlung",
-	"Expected profit": "Erwarteter Gewinn"
-
-
+	"Expected profit": "Erwarteter Gewinn",
+	"Country": "Land",
+	"Address": "Adresse",
+	"Holding company registration number": "Registrierungsnummer der Immobiliengesellschaft",
+	"Number of rooms": "Anzahl Zimmer",
+	"Area": "Fläche",
+	"Number of parking spots": "Anzahl Parkplätze",
+	"Estimated value for tax purposes": "Geschätzer Wert für Steuerzwecke",
+	"Buy HouseT": "HouseT Kaufen",
+	"Approve USDC spending": "USDC Ausgaben genehmigen",
+	"Remove Listing": "Ausschreibung entfernen",
+	"Close": "Schliessen"
 }

@@ -90,7 +90,17 @@
 	"External Financing": "External Financing",
 	"Interest costs": "Interest costs",
 	"Principal payments": "Principal payments",
-	"Expected profit": "Expected profit"
-	
+	"Expected profit": "Expected profit",
+	"Country": "Country",
+	"Address": "Address",
+	"Holding company registration number": "Holding company registration number",
+	"Number of rooms": "Number of rooms",
+	"Area": "Area",
+	"Number of parking spots": "Number of parking spots",
+	"Estimated value for tax purposes": "Estimated value for tax purposes",
+	"Buy HouseT": "Buy HouseT",
+	"Approve USDC spending": "Approve USDC spending",
+	"Remove Listing": "Remove Listing",
+	"Close": "Close"
 }
 

@@ -107,7 +107,7 @@ export default function ExchangeFBHUSDC(children) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <MaterialButton onClick={handleClose}>Close</MaterialButton>
+          <MaterialButton onClick={handleClose}><T>Common.Close</T></MaterialButton>
         </DialogActions>
       </Dialog>
     </span>
