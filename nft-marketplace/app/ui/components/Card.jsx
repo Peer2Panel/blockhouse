@@ -50,7 +50,7 @@ export const Card = ({
         {groupedByHouse ? 
           <div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'250'000.–</p>
+              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'095'000.–</p>
             </div>
             <div className="flex justify-between items-start">
               <p className="text-p text-rhino"><b><T>Common.availability</T>:</b>{num_tokens > 1 ? <span> {num_tokens} / 500 <T>Common.tokens</T></span> : <span> 1 <T>Common.token</T></span>}</p>
@@ -62,7 +62,7 @@ export const Card = ({
         :
           <div>
             <div className="flex justify-between items-start">
-              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'250'000.–</p>
+              <p className="text-p text-rhino"><b><T>Common.total_price</T>:</b> CHF 1'095'000.–</p>
             </div>
             <div className="flex justify-between items-start">
               <p className="text-p text-rhino"><b>{(badge === "owned" || badge === "staked") ? <T>Common.book_value</T> : <T>Common.token_price</T>}:</b> {itemPrice} USDC</p>
@@ -76,7 +76,7 @@ export const Card = ({
           <p className="text-p text-rhino"><b><T>Common.rent_start_date</T>: </b> 01.05.2023</p>
         </div>
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b><T>Common.est_irr</T>: </b> <span style={{fontSize: "20px"}}> 5.28%</span></p>
+          <p className="text-p text-rhino"><b><T>Common.est_irr</T>: </b> <span style={{fontSize: "20px"}}> 7.11%</span></p>
         </div>
       </div>
     </div>

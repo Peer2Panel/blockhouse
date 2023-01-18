@@ -184,33 +184,34 @@ function AccessibleTabs1({nft}) {
 
         <h5 className="text-h5 text-rhino font-bold mt-4"><T>Common.Properties</T></h5>
         <p className="text-p text-manatee font-light mt-3">{nft.badge == "for sale" ? <T>Common.Seller</T> : <T>Common.Owner</T>}: <span className="text-rhino">{truncateEthAddress(nft.seller)}</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Monthly rent per token</T>: <span className="text-rhino">CHF {nft.monthly_return}</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Monthly rent per token</T>: <span className="text-rhino">CHF 7.8 {/*nft.monthly_return*/}</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Total number of tokens</T>: <span className="text-rhino">500</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.rent_start_date</T>: <span className="text-rhino">01.05.2023</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">5.28%</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">7.11%</span></p>
 
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Total purchase price</T>: <span className="text-rhino">CHF 1'250'000</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 52'000</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 4'333</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Total purchase price</T>: <span className="text-rhino">CHF 1'095'000</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Equity Financing</T>: <span className="text-rhino">CHF 470'000</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 52'392</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Gross rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 4'366</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Monthly costs</T>: <span className="text-rhino">CHF 800</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 3'533</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 42'396</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.month</T>: <span className="text-rhino">CHF 3'566</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Net rent</T> / <T>Common.year</T>: <span className="text-rhino">CHF 42'792</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.External Financing</T>: <span className="text-rhino">CHF 625'000</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Interest costs</T> / <T>Common.month</T>: <span className="text-rhino">CHF 781.25</span> (<T>Common.interest-rate</T>: 1.5%)</p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Principal payments</T>: <span className="text-rhino">CHF 781.25</span> (<T>Common.repayment-rate</T>: 1.5%)</p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Expected profit</T> / <T>Common.year</T>: <span className="text-rhino">CHF 33'021</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">5.28%</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Expected profit</T> / <T>Common.year</T>: <span className="text-rhino">CHF 33'417</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.est_irr</T>: <span className="text-rhino">7.11%</span></p>
       </TabPanel>
       <TabPanel value={value} index={2}>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Country</T>: <span className="text-rhino">{i18n.getTranslation("Common."+nft.itemCountry)}</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Address</T>: <span className="text-rhino">{nft.name}</span></p>
         <p className="text-p text-manatee font-light mt-3"><T>Common.Holding company registration number</T>: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={"https://www.moneyhouse.ch/en/company/immotrust-schweiz-ag-13471144491"}><span className="text-rhino">CH-170.3.045.945-2</span></a></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of rooms</T>: <span className="text-rhino">25</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Area</T>: <span className="text-rhino">500 sqm</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of parking spots</T>: <span className="text-rhino">8</span></p>
-        <p className="text-p text-manatee font-light mt-3"><T>Common.Estimated value for tax purposes</T>: <span className="text-rhino">CHF 1'250'000</span> (10.12.2022)</p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of apartments</T>: <span className="text-rhino">4 </span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Area</T>: <span className="text-rhino">208 m2</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Number of parking spots</T>: <span className="text-rhino">5</span></p>
+        <p className="text-p text-manatee font-light mt-3"><T>Common.Estimated value for tax purposes</T>: <span className="text-rhino">CHF 1'095'000</span> (10.12.2022)</p>
       </TabPanel>
       <TabPanel value={value} index={3}>
         <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
