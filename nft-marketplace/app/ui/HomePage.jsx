@@ -9,6 +9,7 @@ import { switchToNEAR } from "./contract_functions/utils";
 import { AntSwitch } from './components/Switches.jsx';
 import T from "./Translator.jsx";
 import i18n from 'meteor/universe:i18n';
+import {isMobile} from 'react-device-detect';
 
 export default function HomePage() {
   const [nfts, setNfts] = useState([]);
@@ -108,14 +109,14 @@ export default function HomePage() {
                   {loadingState != 'loaded' ? <T>Common.loading</T> : ""}
                   <span>
                     {selectedHouse ? 
-                      <div>Selected: {selectedHouse} <a hred={"#"} style={{textDecoration: "underline", cursor: "pointer"}}onClick={()=>setSelectedHouse("")}><b>X</b></a></div> : 
-                    <span style={{display: "flex", padding: "10px"}}>
-                      <span style={{marginTop: "15px", marginLeft: "10px", marginRight: "5px"}}>
+                      <div><T>Common.selected</T>: {selectedHouse} <a hred={"#"} style={{textDecoration: "underline", cursor: "pointer"}}onClick={()=>setSelectedHouse("")}><b>X</b></a></div> : 
+                    <span style={{display: "flex", padding: "10px", flexWrap: "wrap"}}>
+                      <span style={{marginTop: "0px", marginLeft: "10px", marginRight: "5px", marginBottom: "10px"}}>
                         <T>Common.group-by-house</T>
+                        <span style={{display: "inline-block", marginTop: "20px", marginLeft: "10px", marginRight: "10px"}}>
+                          <AntSwitch onChange={(e) => {console.log(e.target.checked); setGroupedByHouse(e.target.checked)}} checked={groupedByHouse} inputProps={{ 'aria-label': 'ant design' }} />
+                        </span>
                       </span>  
-                      <span style={{marginTop: "20px", marginLeft: "10px", marginRight: "10px"}}>
-                        <AntSwitch onChange={(e) => {console.log(e.target.checked); setGroupedByHouse(e.target.checked)}} checked={groupedByHouse} inputProps={{ 'aria-label': 'ant design' }} />
-                      </span>
                       <Select onChange={e => {
                         setCountry(e.target.value);
                         setLoadMore(loadMoreInitialState);
@@ -144,10 +145,10 @@ export default function HomePage() {
               </div>
             </div>
         {(loadingState == 'loaded' && items.length == 0 && country != "" && country != i18n.getTranslation("Common.all-countries")) ? (
-          <h2 className="text-h2 text-rhino font-bold">No house tokens listed</h2>
+          <h2 className="text-h2 text-rhino font-bold"><T>Common.no-tokens-selection</T></h2>
         ) : (
           <>
-            <div className="grid gap-4 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto">
+            <div className={`grid gap-4 grid-cols-${isMobile ? 1 : 2} lg:grid-cols-3 xl:grid-cols-4 w-full container mx-auto`}>
               {items.slice(0, loadMore).map((nft) => (
                 <Card 
                   groupedByHouse={groupedByHouse && selectedHouse == "" ? true : false} 

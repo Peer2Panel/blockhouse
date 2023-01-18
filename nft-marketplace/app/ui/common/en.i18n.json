@@ -64,6 +64,7 @@
 	"not-verified": "not verified",
 	"verified-info": "Only whitelisted accounts can receive revenues or stake HouseT. The official ownership transfer of the stake is only complete once the new owner is verified. For whitelisting please send a photo of your valid passport to jonathan.lehner@blockhouse.com.",
 	"no-tokens": "No house tokens in this account",
+	"no-tokens-selection": "No house tokens for this selection",
 	"psm": "Price Stability Mechanism",
 	"psm-info": "Here you can exchange Fungible Blockhouse FBH and USDC, as long as there are reserves in the smart contract. You need to approve the amount of USDC first.",
 	"listing-price": "Listing price",
@@ -100,9 +101,10 @@
 	"Area": "Area",
 	"Number of parking spots": "Number of parking spots",
 	"Estimated value for tax purposes": "Estimated value for tax purposes",
-	"Buy HouseT": "Buy HouseT",
+	"Buy HouseT": "Buy token",
 	"Approve USDC spending": "Approve USDC spending",
 	"Remove Listing": "Remove Listing",
-	"Close": "Close"
+	"Close": "Close",
+	"selected": "Selected"
 }
 

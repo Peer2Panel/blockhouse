@@ -64,6 +64,7 @@
 	"not-verified": "nicht verifiziert",
 	"verified-info": "Nur Konten auf der Whitelist können Einnahmen erhalten oder HouseT einsetzen. Die offizielle Eigentumsübertragung des Anteils ist erst abgeschlossen, wenn der neue Eigentümer verifiziert ist. Für das Whitelisting senden Sie bitte ein Foto Ihres gültigen Reisepasses an jonathan.lehner@blockhouse.com.",
 	"no-tokens": "Keine Haustokens auf diesem Konto",
+	"no-tokens-selection": "Keine Haustokens für diese Auswahl",
 	"psm": "Preisstabilitätsmechanismus",
 	"psm-info": "Hier können Sie Fungible Blockhouse FBH und USDC tauschen, solange Reserven im Smart Contract vorhanden sind. Sie müssen zuerst den USDC-Betrag genehmigen.",
 	"listing-price": "Verkaufspreis",
@@ -100,8 +101,9 @@
 	"Area": "Wohnfläche",
 	"Number of parking spots": "Anzahl Parkplätze",
 	"Estimated value for tax purposes": "Geschätzer Wert für Steuerzwecke",
-	"Buy HouseT": "HouseT Kaufen",
+	"Buy HouseT": "Token Kaufen",
 	"Approve USDC spending": "USDC Ausgaben genehmigen",
 	"Remove Listing": "Ausschreibung entfernen",
-	"Close": "Schliessen"
+	"Close": "Schliessen",
+	"selected": "Ausgewählt"
 }

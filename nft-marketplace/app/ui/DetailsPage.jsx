@@ -24,6 +24,7 @@ import Typography from '@mui/material/Typography';
 
 import T from "./Translator.jsx";
 import i18n from 'meteor/universe:i18n';
+import {isMobile} from 'react-device-detect';
 
 export default function DetailsPage() {
   const [nft, setNft] = useState(null);
@@ -156,6 +157,7 @@ function AccessibleTabs1({nft}) {
     <>
       <Box sx={{ width: '100%' }}>
         <Tabs
+          orientation={isMobile ? "vertical":"horizontal"}
           onChange={handleChange}
           value={value}
           aria-label="Tabs where selection follows focus"
@@ -214,7 +216,7 @@ function AccessibleTabs1({nft}) {
         <p className="text-p text-manatee font-light mt-3"><T>Common.Estimated value for tax purposes</T>: <span className="text-rhino">CHF 1'095'000</span> (10.12.2022)</p>
       </TabPanel>
       <TabPanel value={value} index={3}>
-        <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino">0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
+        <p className="text-p text-manatee font-light mt-3">Smart contract: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E`}><span className="text-rhino" style={{wordBreak: "break-all"}}>0xe8bBF732c32814F6106F286B6BF34E3F27f2551E</span></a></p>
         <p className="text-p text-manatee font-light mt-3">Token ID: <a style={{textDecoration: "underline", color: "blue"}} target={"_blank"} href={`https://aurorascan.dev/token/0xe8bBF732c32814F6106F286B6BF34E3F27f2551E?a=${nft.tokenId}`}><span className="text-rhino">{nft.tokenId}</span></a></p>
       </TabPanel>
     </>
