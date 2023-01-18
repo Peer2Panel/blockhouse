@@ -70,7 +70,7 @@ export const Card = ({
           </div>
         }
         <div className="flex justify-between items-start">
-          <p className="text-p text-rhino"><b><T>Common.rent_per_token</T>: </b> CHF {monthlyRevenue} / <T>Common.month</T></p>
+          <p className="text-p text-rhino"><b><T>Common.rent_per_token</T>: </b> CHF 7.8 {/*monthlyRevenue*/} / <T>Common.month</T></p>
         </div>
         <div className="flex justify-between items-start">
           <p className="text-p text-rhino"><b><T>Common.rent_start_date</T>: </b> 01.05.2023</p>
