@@ -7,7 +7,7 @@ import BH_FungibleBlockhouse_abi from "../abis/BH_FungibleBlockhouse.json";
 import USDC_test_abi from "../abis/USDC_testnet.json";
 
 import addresses_mainnet from "./addresses_mainnet.json";
-import addresses_testnet from "./addresses.json";
+
 let addresses;
 if(true){
   addresses = addresses_mainnet;
@@ -149,7 +149,7 @@ async function unlist_HouseT(loggedInAddress, tokenID = "") {
 }
 
 async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = false) {
-  //console.log("lNFT1")
+  console.log("lNFT1")
   let signer;
   if(loadAll){
     const provider = new ethers.providers.JsonRpcProvider('https://aurora-mainnet.infura.io/v3/40ebc8fff15d4ca6aaa594d4d87710cd');
@@ -163,7 +163,7 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
   const houseTContract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
   const allInfo = await houseTContract.get_all_HouseT_info();
 
-  //console.log(allInfo)
+  console.log(allInfo)
 
   const [addresses, metadata, listed, staked, concatenated_uint] = allInfo;
   const [bookvalue, listing_prices, earned_profits,remaining_payment_list] = concatenated_uint;
@@ -183,7 +183,9 @@ async function loadNFTs(loggedInAddress, setNfts, setLoadingState, loadAll = fal
 
   const processTokenId = async (tokenId) => {
     //const tokenURI = await houseTContract.tokenURI(tokenId);
-    const tokenURI = metadata[tokenId];
+    let tokenURI = metadata[tokenId];
+    tokenURI = tokenURI.replace("blockhouse.infura-ipfs.io", "ipfs.io");
+    console.log("fetching ", tokenURI);
     const meta = JSON.parse(await (await fetch(`${tokenURI}`).then((response) => {
       return response.text();
     })));

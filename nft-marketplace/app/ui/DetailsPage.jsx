@@ -53,7 +53,7 @@ export default function DetailsPage() {
             nft ? (
               <>
                 <div className="col-span-1">
-                  <img src={nft.image.replace("ipfs.infura.io", "blockhouse.infura-ipfs.io")} alt="NFT image"/>
+                  <img src={nft.image.replace("blockhouse.infura-ipfs.io", "ipfs.io")} alt="NFT image"/>
                 </div>
 
                 <div className="col-span-2">

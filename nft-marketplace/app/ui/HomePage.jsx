@@ -11,6 +11,7 @@ import T from "./Translator.jsx";
 import i18n from 'meteor/universe:i18n';
 import {isMobile} from 'react-device-detect';
 
+// {//["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (}
 export default function HomePage() {
   const [nfts, setNfts] = useState([]);
   const [sortBy, setSortBy] = useState('oldest');
@@ -40,12 +41,12 @@ export default function HomePage() {
 
   useEffect(() => {
     //console.log(loggedInAddress)
-    //console.log("loading nNN")
+    console.log("loading NFTs")
     const active_address = loggedInAddress || "0xe7E3E925E5dcFeaF5C5CEBfbc6EfD4B404B0e607";
     loadNFTs(active_address, setNfts, setLoadingState, loadAll=true);
   }, [sortBy, loadMore]);
 
-  //console.log(nfts)
+  console.log("nfts", nfts);
   items = nfts.filter(nft => nft.listed == true && (nft.itemCountry == country || country == "" || country == "All countries"));
 
   if (sortBy === 'oldest') {
@@ -86,7 +87,7 @@ export default function HomePage() {
     { label: i18n.getTranslation("Common.Low-to-High"), value: "price-low" },
     { label: i18n.getTranslation("Common.High-to-Low"), value: "price-high" },
   ];
-
+  
   return (
     <>
       <div className="bg-rhino bg-bg-stars bg-auto bg-no-repeat bg-center-center py-24">
@@ -121,13 +122,13 @@ export default function HomePage() {
                         setCountry(e.target.value);
                         setLoadMore(loadMoreInitialState);
                       }}>
-                        {/*["All cantons", "Zurich", "Zug", "Bern", "Luzern", "Uri", "Schwyz", "Glarus"].map((option) => (*/}
-                        {[i18n.getTranslation("Common.all-countries"), 
-                        i18n.getTranslation("Common.Switzerland"), 
-                        i18n.getTranslation("Common.Germany"),
-                        i18n.getTranslation("Common.Austria"),
-                        i18n.getTranslation("Common.Singapore"),
-                        i18n.getTranslation("Common.Korea"),
+                        {[
+                          i18n.getTranslation("Common.all-countries"), 
+                          i18n.getTranslation("Common.Switzerland"), 
+                          i18n.getTranslation("Common.Germany"),
+                          i18n.getTranslation("Common.Austria"),
+                          i18n.getTranslation("Common.Singapore"),
+                          i18n.getTranslation("Common.Korea"),
                         ].map((option) => (
                           <option key={option} value={option}>{option}</option>
                         ))}

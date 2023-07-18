@@ -41,7 +41,7 @@ export const Card = ({
           height: "200px",
           background: "white"
         }}
-        className="w-full" src={itemImg.replace("ipfs.infura.io", "blockhouse.infura-ipfs.io")} />
+        className="w-full" src={itemImg.replace("blockhouse.infura-ipfs.io", "ipfs.io")} />
       </div>
       <div className="rounded-b-xl bg-white p-4" style={{"padding": "30px"}}>
         <div className="flex justify-between items-start">

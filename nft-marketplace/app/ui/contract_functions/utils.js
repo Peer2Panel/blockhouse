@@ -115,7 +115,7 @@ async function onChangeIPFS(e, setFileUrl) {
     await Meteor.call("uploadToIPFS", {file: await getBase64(file)}, (error, result) => { 
       console.log("onChangeIPFS");
       console.log(result);
-      const url = `https://blockhouse.infura-ipfs.io/ipfs/${result.path}`;
+      const url = `https://ipfs.io/ipfs/${result.path}`;
       console.log(url);
       setFileUrl(url);
      }
@@ -145,7 +145,7 @@ async function uploadToIPFS (formInput, fileUrl, callback) {
   try {
     await Meteor.call("uploadToIPFSSimple", {data}, (error, result) => { 
       console.log(result)
-      const url = `https://blockhouse.infura-ipfs.io/ipfs/${result.path}`;
+      const url = `https://ipfs.io/ipfs/${result.path}`;
       callback(url);
      }
     );

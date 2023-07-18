@@ -2,8 +2,11 @@ import React from 'react';
 import { BrowserRouter, Routes as ReactRoutes, Route } from 'react-router-dom';
 import { RoutePaths } from './RoutePaths';
 import { App } from "../App";
+import HomePage from '../HomePage';
 
-const HomePage = React.lazy(() => import('../HomePage'));
+// J: gives error with loading
+// const HomePage = React.lazy(() => import('../HomePage'));
+// <Route index element={<HomePage />} key={"home"} />
 const ContractTestPage = React.lazy(() => import('../ContractTestPage'));
 const MintNFTPage = React.lazy(() => import('../MintNFTPage'));
 const ConnectPage = React.lazy(() => import('../ConnectPage'));

@@ -92,7 +92,7 @@ async function update_URI(loggedInAddress, tokenID = 0, URI = "") {
   
   alert("Listing batch of tokens. Please open wallet connect or metamask.");
   tokenID = 0;
-  URI = "https://blockhouse.infura-ipfs.io/ipfs/QmZ4AVSrnca4REMpYGQ4qwJEpqrPu71Vr5s3gtdge5YJJ4"
+  URI = "https://ipfs.io/ipfs/QmZ4AVSrnca4REMpYGQ4qwJEpqrPu71Vr5s3gtdge5YJJ4"
   if(URI == ""){
     URI = document.getElementById("URI").value;
   }
@@ -103,32 +103,6 @@ async function update_URI(loggedInAddress, tokenID = 0, URI = "") {
   });
   await transaction.wait();
   list_HouseT_batch
-  
-  /*alert("Updating batch of URIs. Please open wallet connect or metamask.");
-  tokenID = 0;
-  URI = "https://blockhouse.infura-ipfs.io/ipfs/QmZ4AVSrnca4REMpYGQ4qwJEpqrPu71Vr5s3gtdge5YJJ4"
-  if(URI == ""){
-    URI = document.getElementById("URI").value;
-  }
-  const signer = await getSigner(loggedInAddress);
-  const contract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-  const transaction = await contract.update_URI([tokenID], [URI], {
-    gasLimit: 1000000,
-  });
-  await transaction.wait();*/
-
-  /*alert("Updating URI. Please open wallet connect or metamask.");
-  tokenID = 0;
-  URI = "https://blockhouse.infura-ipfs.io/ipfs/QmZ4AVSrnca4REMpYGQ4qwJEpqrPu71Vr5s3gtdge5YJJ4"
-  if(URI == ""){
-    URI = document.getElementById("URI").value;
-  }
-  const signer = await getSigner(loggedInAddress);
-  const contract = new ethers.Contract(BH_HouseT_address, BH_HouseT_abi.abi, signer);
-  const transaction = await contract.update_URI(tokenID, URI, {
-    gasLimit: 1000000,
-  });
-  await transaction.wait();*/
 }
 
 async function mint_HouseT(loggedInAddress, URI = "", bookvalue = 0, total_number_payments = 0) {

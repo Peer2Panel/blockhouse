@@ -10,7 +10,7 @@ module.exports = {
   },
 
   app: {
-    name: 'Blockhouse',
+    name: 'Earningspool',
     path: '../',
 
     servers: {
@@ -22,7 +22,7 @@ module.exports = {
     },
 
     env: {
-      ROOT_URL: "https://blockhouse.jonathanlehner.com",
+      ROOT_URL: "https://earningspool.jonathanlehner.com",
     },
 
     docker: {
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   proxy: {
-    domains: 'blockhouse.jonathanlehner.com',
+    domains: 'earningspool.jonathanlehner.com',
     ssl: {
       letsEncryptEmail: 'jonathan@milliwayszurich.com',
       forceSSL: true 
