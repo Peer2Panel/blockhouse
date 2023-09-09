@@ -22,7 +22,7 @@ module.exports = {
     },
 
     env: {
-      ROOT_URL: "https://blockhouse.jonathanlehner.com",
+      ROOT_URL: "https://app.blockhouseag.com",
     },
 
     docker: {
@@ -47,7 +47,7 @@ module.exports = {
   },
 
   proxy: {
-    domains: 'blockhouse.jonathanlehner.com',
+    domains: 'app.blockhouseag.com',
     ssl: {
       letsEncryptEmail: 'jonathan@milliwayszurich.com',
       forceSSL: true 

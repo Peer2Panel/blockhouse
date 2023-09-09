@@ -27,7 +27,7 @@ export const NavBar = ({ connection, onConnect, loggedInAddress }) => {
             <div className="relative flex items-center justify-between h-16">
               <div className="flex-1 flex items-center justify-between sm:items-stretch">
                 <div className="flex-shrink-0 flex items-center">
-                  <Link to={RoutePaths.ROOT}><img id="logo" style={{maxWidth: "250px", position: "absolute"}} src="/images/blockhouse_logo.jpg" alt="Meteor NFT"/></Link>
+                  <Link to={RoutePaths.ROOT}><img id="logo" style={{maxWidth: "250px", position: "absolute"}} src="/images/Blockhouse_logo.png" alt="Meteor NFT"/></Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex items-center space-x-4">
